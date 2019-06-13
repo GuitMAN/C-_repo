@@ -44,7 +44,6 @@ private:
 
 
 
-
 int main()
 {
 	setlocale(LC_ALL, "ru");

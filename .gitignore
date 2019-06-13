@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+/MultithreadApp/Debug
+/MultithreadApp/.vs/MultithreadApp/v16/Browse.VC.opendb
