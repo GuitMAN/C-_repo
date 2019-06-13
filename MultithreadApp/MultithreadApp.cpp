@@ -6,8 +6,6 @@
 
 using namespace std;
 
-
-
 mutex mtx;
  
 class MyClass
@@ -41,16 +39,10 @@ private:
 
 };
 
-
-
-
 int main()
 {
 	setlocale(LC_ALL, "ru");
-	
-
 	MyClass m;
-
 
 	thread th1([&]()
 		{
@@ -63,8 +55,6 @@ int main()
 		{
 			result = m.DoWork2(20);
 		});
-
-	
 	
 	th1.join();
 	th2.join();
