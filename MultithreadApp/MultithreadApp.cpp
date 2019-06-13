@@ -2,10 +2,14 @@
 //
 #include <iostream>
 #include <thread>
+#include <mutex>
 
 using namespace std;
 
 
+
+mutex mtx;
+ 
 class MyClass
 {
 public:
@@ -13,7 +17,9 @@ public:
 	{
 		for (size_t i = 0; i < 10; i++)
 		{
+			mtx.lock();
 			cout << "ID Потока =" << this_thread::get_id() << "\tDoWork\t" << i << endl;
+			mtx.unlock();
 			this_thread::sleep_for(chrono::milliseconds(1000));
 		}
 	};
@@ -23,7 +29,9 @@ public:
 	{
 		for (size_t i = 0; i < a; i++)
 		{
+			mtx.lock();
 			cout << "ID Потока =" << this_thread::get_id() << "\tDoWork2\t" << i << endl;
+			mtx.unlock();
 			this_thread::sleep_for(chrono::milliseconds(800));
 		}
 		return a;
@@ -57,11 +65,7 @@ int main()
 			result = m.DoWork2(20);
 		});
 
-	for (size_t i = 0; i < 10; i++)
-	{
-		cout << "ID Потока =" << this_thread::get_id() << "\tmain\t" << i << endl;
-		this_thread::sleep_for(chrono::milliseconds(500));
-	}
+	
 	
 	th1.join();
 	th2.join();
