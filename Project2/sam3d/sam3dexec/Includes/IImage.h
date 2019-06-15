@@ -1,7 +1,7 @@
 #pragma once
 
 #include "IBase.h" 
-#include "core/Scolor.h"
+#include "../scr/core/Scolor.h"
 #include "../scr/core/Dimension2d.h"
 
 namespace Sam3d
@@ -44,6 +44,20 @@ public:
 	virtual void resizeTo(const Dimension2d<int>& size)=0;
 	//! fills the surface with black or white
 	virtual void fill(short color)=0;
+
+protected:
+	ECOLOR_FORMAT Format;
+	Dimension2d<int> Size;
+
+	void* Data;
+	void* MipMapsData;
+
+	int BytesPerPixel;
+	int Pitch;
+
+	bool DeleteMemory;
+	bool DeleteMipMapsMemory;
+
 };
 
 };

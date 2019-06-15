@@ -5,7 +5,7 @@
 #include "IBase.h"
 #include "ICameraSceneNode.h"
 #include "ICursor.h"
-//#include "IFont.h"
+#include "IFont.h"
 #include "IImage.h"
 //#include "IImageLoader.h"
 //#include "IMesh.h"

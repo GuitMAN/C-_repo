@@ -149,5 +149,17 @@
     <ClInclude Include="States\App.h">
       <Filter>Исходные файлы\States</Filter>
     </ClInclude>
+    <ClInclude Include="scr\CImage.h">
+      <Filter>Исходные файлы\scr</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\core\SColor.h">
+      <Filter>Исходные файлы\scr\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\IFont.h">
+      <Filter>Файлы заголовков\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\core\Position2d.h">
+      <Filter>Исходные файлы\scr\core</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
