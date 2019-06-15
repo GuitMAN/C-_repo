@@ -23,16 +23,16 @@
 //#include "ITimer.h"
 //#include "IVertexBuffer.h"
 #include "IWindow.h"
-#include "core/Dimension2d.h"
+#include "../scr/core/Dimension2d.h"
 //#include "core/Matrix4f.h"
 //#include "core/Plane3d.h"
 //#include "core/Quaternionf.h"
-#include "core/S3Dvertex.h"
+#include "../scr/core/S3DVertex.h"
 //#include "core/SColor.h"
 //#include "core/SLight.h"
 //#include "core/SMaterial.h"
-#include "core/UserMath.h"
-#include "core/Vector3f.h"
+#include "../scr/core/UserMath.h"
+#include "../scr/core/Vector3f.h"
 
 namespace Sam3d
 {

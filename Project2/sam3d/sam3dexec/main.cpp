@@ -8,10 +8,10 @@ int WINAPI WinMain(HINSTANCE hinstance,
 {
 	ExampleApp Root;
 
-	Root.setup();
-
-	Root.Run();
-
+	if (Root.setup()) 
+	{
+		Root.Run();
+	};
 	Root.shutdown();
 
 };
