@@ -6,34 +6,11 @@ D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не 
   CFont.cpp
 D:\C++\Project2\sam3d\sam3dexec\scr\CDirect3D9Render.h(3,10): error C1083:  Не удается открыть файл включение: d3dx9tex.h: No such file or directory,
   CImage.cpp
-D:\C++\Project2\sam3d\sam3dexec\scr\CFont.h(2,10): error C1083:  Не удается открыть файл включение: ../Includes/IFont.h: No such file or directory,
+D:\C++\Project2\sam3d\sam3dexec\Includes\IRender.h(5,10): error C1083:  Не удается открыть файл включение: IShaders.h: No such file or directory,
 D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(432,18): error C3861:  min_: идентификатор не найден
 D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(433,5): error C3861:  min_: идентификатор не найден
 D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(434,5): error C3861:  min_: идентификатор не найден
 D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(435,5): error C3861:  min_: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(482,1): error C2653:  video: не является именем класса или пространства имен
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(489,1): error C2653:  video: не является именем класса или пространства имен
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(561,1): error C2653:  core: не является именем класса или пространства имен
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(561,30): error C3861:  round32: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(561,63): error C3861:  round32: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(561,96): error C3861:  round32: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(561,129): error C3861:  round32: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(590,1): error C2653:  core: не является именем класса или пространства имен
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(590,14): error C3861:  clamp: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(603,1): error C2653:  core: не является именем класса или пространства имен
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(603,14): error C3861:  clamp: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(680,34): error C2653:  core: не является именем класса или пространства имен
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(680,30): error C3861:  max_: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(681,41): error C2653:  core: не является именем класса или пространства имен
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(681,37): error C3861:  min_: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(683,6): error C2653:  core: не является именем класса или пространства имен
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(683,13): error C3861:  equals: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(701,6): error C2653:  core: не является именем класса или пространства имен
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(701,13): error C3861:  equals: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(703,11): error C2653:  core: не является именем класса или пространства имен
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(703,18): error C3861:  equals: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(717,6): error C2653:  core: не является именем класса или пространства имен
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(717,13): error C3861:  iszero: идентификатор не найден
 D:\C++\Project2\sam3d\sam3dexec\Includes\IImage.h(11,1): error C2011:  Sam3d::ECOLOR_FORMAT: переопределение типа "enum"
 D:\C++\Project2\sam3d\sam3dexec\scr\core\Scolor.h(13): message :   см. объявление "Sam3d::ECOLOR_FORMAT"
 D:\C++\Project2\sam3d\sam3dexec\scr\CImage.h(13,41): error C2969:  синтаксическая ошибка: ;: требуется определение функции-члена до "}"
@@ -79,7 +56,6 @@ D:\C++\Project2\sam3d\sam3dexec\scr\CImage.cpp(87,7): error C2131:  выраже
 D:\C++\Project2\sam3d\sam3dexec\scr\CImage.cpp(87,7): message :  обнаружено неконстантное (под)выражение
   CMesh.cpp
 D:\C++\Project2\sam3d\sam3dexec\scr\CImage.cpp(87,1): error C2051:  значение выражения для варианта выбора не является константой
-  Usermath.cpp
   CSceneManager.cpp
 D:\C++\Project2\sam3d\sam3dexec\scr\CMesh.h(1,10): error C1083:  Не удается открыть файл включение: ../Includes/IMesh.h: No such file or directory,
 D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(166,41): error C2061:  синтаксическая ошибка: идентификатор "uInt"
@@ -219,6 +195,6 @@ D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не 
   CWindow.cpp
 D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не удается открыть файл включение: ../scr/core/Matrix4f.h: No such file or directory,
   App.cpp
-D:\C++\Project2\sam3d\sam3dexec\Includes\IWindow.h(4,10): error C1083:  Не удается открыть файл включение: IFont.h: No such file or directory,
+D:\C++\Project2\sam3d\sam3dexec\Includes\IRender.h(5,10): error C1083:  Не удается открыть файл включение: IShaders.h: No such file or directory,
   Создание кода...
 D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не удается открыть файл включение: ../scr/core/Matrix4f.h: No such file or directory,

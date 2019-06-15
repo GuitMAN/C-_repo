@@ -9,13 +9,11 @@ namespace Sam3d
 	public:
 
 	//! constructor
-		CImage(ECOLOR_FORMAT format, const Dimension2d<int>& size)
-			: Format(format), Size(size), Data(0);
+		CImage(ECOLOR_FORMAT format, const Dimension2d<int>& size);
 
 
 	//! constructor
-		CImage(ECOLOR_FORMAT format, const Dimension2d<int>& size, void* data)
-			: Format(format), Size(size), Data(0);
+		CImage(ECOLOR_FORMAT format, const Dimension2d<int>& size, void* data);
 
 	//! assumes format and size has been set and creates the rest
 		void initData();
