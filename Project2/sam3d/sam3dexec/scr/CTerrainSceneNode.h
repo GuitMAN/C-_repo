@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
-#include "../Include/ITerrainSceneNode.h"
-#include "../Include/VertexIndexData.h"
-#include "../Include/ISceneManager.h"
+#include "../Includes/ITerrainSceneNode.h"
+#include "../Includes/VertexIndexData.h"
+#include "../Includes/ISceneManager.h"
 
 
 namespace Sam3d

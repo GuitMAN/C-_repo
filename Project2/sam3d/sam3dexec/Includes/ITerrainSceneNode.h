@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ISceneNode.h"
-#include "core/Vector3f.h"
+#include "../scr/core/Vector3f.h"
 	
 namespace Sam3d
 {

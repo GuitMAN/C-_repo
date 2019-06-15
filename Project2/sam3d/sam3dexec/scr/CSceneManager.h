@@ -3,12 +3,12 @@
 #include <vector>
 #include "../scr/core/Vector3f.h"
 #include "../scr/core/S3Dvertex.h"
-#include "../Include/ICameraSceneNode.h"
+#include "../Includes/ICameraSceneNode.h"
 
-#include "../Include/IRender.h"
-#include "../Include/ITimer.h"
-#include "../Include/ISceneManager.h"
-#include "../Include/ITerrainSceneNode.h"
+#include "../Includes/IRender.h"
+#include "../Includes/ITimer.h"
+#include "../Includes/ISceneManager.h"
+#include "../Includes/ITerrainSceneNode.h"
 
 namespace Sam3d
 {

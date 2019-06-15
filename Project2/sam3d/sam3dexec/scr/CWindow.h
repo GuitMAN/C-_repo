@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../Include/IWindow.h"         // Подключаем заголовочный файл Windows
-#include "../Include/input.h"
+#include "../Includes/IWindow.h"         // Подключаем заголовочный файл Windows
+#include "../Includes/input.h"
 #include "CTimer.h"
 
 #include <list>

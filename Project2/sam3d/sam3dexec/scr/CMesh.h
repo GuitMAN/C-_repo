@@ -1,4 +1,4 @@
-#include "../Include/IMesh.h"
+#include "../Includes/IMesh.h"
 
 namespace Sam3d
 {

@@ -3,10 +3,10 @@
 #include "IBase.h"
 #include <string>
 #include <list>
-#include "core/Matrix4f.h"
-#include "core/Quaternionf.h"
-#include "core/SMaterial.h"
-#include "core/Vector3f.h"
+#include "../scr/core/Matrix4f.h"
+#include "../scr/core/Quaternionf.h"
+#include "../scr/core/SMaterial.h"
+#include "../scr/core/Vector3f.h"
 
 namespace Sam3d
 {

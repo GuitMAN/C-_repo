@@ -1,6 +1,6 @@
 #include "CCameraFPSNode.h"
 #include "CTimer.h"
-#include "../Include/ISceneManager.h"
+#include "../Includes/ISceneManager.h"
 
 namespace Sam3d
 {

@@ -1,0 +1,25 @@
+﻿  main.cpp
+  CCameraFPSNode.cpp
+D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не удается открыть файл включение: ../scr/core/Matrix4f.h: No such file or directory,
+  CDirect3D9Render.cpp
+D:\C++\Project2\sam3d\sam3dexec\scr\CCameraFPSNode.h(3,10): error C1083:  Не удается открыть файл включение: ../Include/ICameraSceneNode.h: No such file or directory,
+  CFont.cpp
+D:\C++\Project2\sam3d\sam3dexec\scr\CDirect3D9Render.h(3,10): error C1083:  Не удается открыть файл включение: d3dx9tex.h: No such file or directory,
+  CFPSCounter.cpp
+D:\C++\Project2\sam3d\sam3dexec\scr\CFont.h(2,10): error C1083:  Не удается открыть файл включение: ../Includes/IFont.h: No such file or directory,
+  CImage.cpp
+D:\C++\Project2\sam3d\sam3dexec\scr\CFPSCounter.h(2,10): error C1083:  Не удается открыть файл включение: ../include/types.h: No such file or directory,
+  CMesh.cpp
+D:\C++\Project2\sam3d\sam3dexec\scr\CImage.cpp(1,10): error C1083:  Не удается открыть файл включение: CImage.h: No such file or directory,
+  CSceneManager.cpp
+D:\C++\Project2\sam3d\sam3dexec\scr\CMesh.h(1,10): error C1083:  Не удается открыть файл включение: ../Include/IMesh.h: No such file or directory,
+  CSkyBox.cpp
+D:\C++\Project2\sam3d\sam3dexec\scr\core\S3Dvertex.h(4,10): error C1083:  Не удается открыть файл включение: SColor.h: No such file or directory,
+  CTerrainSceneNode.cpp
+D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не удается открыть файл включение: ../scr/core/Matrix4f.h: No such file or directory,
+  CWindow.cpp
+D:\C++\Project2\sam3d\sam3dexec\scr\CTerrainSceneNode.h(3,10): error C1083:  Не удается открыть файл включение: ../Include/ITerrainSceneNode.h: No such file or directory,
+  App.cpp
+D:\C++\Project2\sam3d\sam3dexec\scr\CWindow.h(3,10): error C1083:  Не удается открыть файл включение: ../Include/IWindow.h: No such file or directory,
+  Создание кода...
+D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не удается открыть файл включение: ../scr/core/Matrix4f.h: No such file or directory,

@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../Include/ISceneNode.h"
-#include "../Include/ISceneManager.h"
-#include "../Include/ITexture.h"
-#include "../Include/core/S3DVertex.h"
+#include "../Includes/ISceneNode.h"
+#include "../Includes/ISceneManager.h"
+#include "../Includes/ITexture.h"
+#include "../scr/core/S3DVertex.h"
 
 namespace Sam3d
 {

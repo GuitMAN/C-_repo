@@ -6,13 +6,13 @@
 #include "ITexture.h"
 #include "IVertexBuffer.h"
 #include "IVertexDeclaration.h"
-#include "core/Dimension2d.h"
-#include "core/SLight.h"
-#include "core/Position2d.h"
-#include "core/SColor.h"
-#include "core/SMaterial.h"
-#include "core/Matrix4f.h"
-#include "core/S3DVertex.h"
+#include "../scr/core/Dimension2d.h"
+#include "../scr/core/SLight.h"
+#include "../scr/core/Position2d.h"
+#include "../scr/core/SColor.h"
+#include "../scr/core/SMaterial.h"
+#include "../scr/core/Matrix4f.h"
+#include "../scr/core/S3DVertex.h"
 
 
 #include <d3d9.h>

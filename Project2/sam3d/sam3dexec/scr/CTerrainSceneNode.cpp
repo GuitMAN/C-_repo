@@ -1,6 +1,6 @@
 #include "CTerrainSceneNode.h"
 #include "CImageLoaderTGA.h"
-#include "../Include/IRender.h"
+#include "../Includes/IRender.h"
 
 namespace Sam3d
 {

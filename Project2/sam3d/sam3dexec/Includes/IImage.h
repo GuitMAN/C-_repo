@@ -2,7 +2,7 @@
 
 #include "IBase.h" 
 #include "core/Scolor.h"
-#include "core/Dimension2d.h"
+#include "../scr/core/Dimension2d.h"
 
 namespace Sam3d
 {

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Include/ICameraSceneNode.h"
-#include "../Include/ICursor.h"
-#include "../Include/Input.h"
+#include "../Includes/ICameraSceneNode.h"
+#include "../Includes/ICursor.h"
+#include "../Includes/Input.h"
 #include <vector>
 
 namespace Sam3d

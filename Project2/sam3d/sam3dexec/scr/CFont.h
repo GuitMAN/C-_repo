@@ -1,6 +1,7 @@
 #pragma once
-#include "../include/IFont.h"
-#include "../include/IRender.h"
+#include "../Includes/IFont.h"
+#include "../Includes/IRender.h"
+#include "core/UserMath.h"
 
 namespace Sam3d
 {

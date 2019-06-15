@@ -1,6 +1,6 @@
 #pragma once
 #include "ISceneNode.h"
-#include "Input.h"
+
 
 
 namespace Sam3d

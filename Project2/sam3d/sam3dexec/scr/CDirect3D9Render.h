@@ -8,8 +8,8 @@
 #include "CDirect3D9MaterialRender.h"
 #include "CDirect3D9VertexBuffer.h"
 #include "CDirect3D9VertexDeclaration.h"
-#include "../include/IRender.h"
-#include "../Include/core/matrix4f.h"
+#include "../Includes/IRender.h"
+#include "core/matrix4f.h"
 #include "log.h"
 
 #define	FVF_VERTEX_TEX2 (D3DFVF_XYZ | D3DFVF_DIFFUSE | D3DFVF_TEX1)

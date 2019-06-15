@@ -1,5 +1,5 @@
 #pragma once
-#include "../include/types.h"
+#include "../Includes/types.h"
 
 namespace Sam3d
 {
