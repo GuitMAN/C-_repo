@@ -145,6 +145,7 @@
     <ClInclude Include="Includes\IFont.h" />
     <ClInclude Include="Includes\IImage.h" />
     <ClInclude Include="Includes\IMesh.h" />
+    <ClInclude Include="Includes\IMeshBuffer.h" />
     <ClInclude Include="Includes\includes.h" />
     <ClInclude Include="Includes\IRender.h" />
     <ClInclude Include="Includes\ISceneManager.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="scr\core\S3DVertex.h" />
     <ClInclude Include="scr\core\SColor.h" />
     <ClInclude Include="scr\core\UserMath.h" />
+    <ClInclude Include="scr\core\Vector2f.h" />
     <ClInclude Include="scr\core\Vector3f.h" />
     <ClInclude Include="scr\CSceneManager.h" />
     <ClInclude Include="scr\CSkyBox.h" />

@@ -164,5 +164,11 @@
     <ClInclude Include="Includes\IMesh.h">
       <Filter>Файлы заголовков\Includes</Filter>
     </ClInclude>
+    <ClInclude Include="Includes\IMeshBuffer.h">
+      <Filter>Файлы заголовков\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\core\Vector2f.h">
+      <Filter>Исходные файлы\scr\core</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

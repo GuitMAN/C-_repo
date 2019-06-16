@@ -70,11 +70,11 @@ namespace Sam3d
 		}
 	private:
 #define ONE_AS_INTEGER ((DWORD)(0x3F800000))
-		float __inline InvSqrt(const float& x)
+		float __inline InvSqrt(const float& a)
 		{
-			DWORD   tmp = ((ONE_AS_INTEGER << 1) + ONE_AS_INTEGER - *(DWORD*)& x) >> 1;
+			DWORD   tmp = ((ONE_AS_INTEGER << 1) + ONE_AS_INTEGER - *(DWORD*)& a) >> 1;
 			float y = *(float*)& tmp;
-			return y * (1.47f - 0.47f * x * y * y);
+			return y * (1.47f - 0.47f * a * y * y);
 		}
 	public:
 		inline void Normalize()

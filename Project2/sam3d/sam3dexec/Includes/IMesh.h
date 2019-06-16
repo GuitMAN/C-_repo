@@ -1,15 +1,17 @@
 #pragma once
+#include "IMeshBuffer.h"
+
 
 
 namespace Sam3d
 {
 
-	class IMesh 
+	class IMesh : IBase
 	{
 	public:
 
-		virtual void addSubMesh(ISubMesh* buf);
-		virtual ISubMesh* getSubMesh(uInt id);
+		virtual void addSubMesh(IMeshBuffer* buf);
+		virtual IMeshBuffer* getSubMesh(uInt id);
 		virtual SMaterial& getMaterialSubMesh(uInt id);
 		virtual void deleteMesh();
 

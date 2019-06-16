@@ -35,7 +35,6 @@ namespace Sam3d
 		//! fills the surface with black or white
 		virtual void fill(short color) = 0;
 
-	
 
 	};
 

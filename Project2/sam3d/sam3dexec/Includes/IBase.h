@@ -9,6 +9,11 @@ namespace Sam3d
 class IBase
 {
 public:
+	IBase()
+	{
+		AddRef();
+	}
+
 	virtual ~IBase(void){};
 
 	bool Release()
