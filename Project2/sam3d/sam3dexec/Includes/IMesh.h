@@ -13,8 +13,5 @@ namespace Sam3d
 		virtual SMaterial& getMaterialSubMesh(uInt id);
 		virtual void deleteMesh();
 
-		//! The meshbuffers of this mesh
-		std::vector<ISubMesh*> pSubMesh;
-
 	};
 };
