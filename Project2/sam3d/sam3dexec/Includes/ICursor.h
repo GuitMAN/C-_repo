@@ -1,5 +1,5 @@
 #pragma once
-#include "core/Position2d.h"
+#include "../scr/core/Position2d.h"
 
 namespace Sam3d
 {

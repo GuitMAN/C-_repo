@@ -1,5 +1,5 @@
 #include "CCameraFPSNode.h"
-#include "CTimer.h"
+//#include "CTimer.h"
 #include "../Includes/ISceneManager.h"
 
 namespace Sam3d
@@ -21,7 +21,7 @@ ICameraSceneNode(parent, mgr, id, Vector3f(0.0f, 0.0f, 0.0f),	Vector3f(0.0f, 0.0
 	UpVector.Set(0.0f, 1.0f, 0.0f);
 	Target.Set(0,0,1);
 	setVisible(true);
-	setPosition(Vector3f(0,0,0));
+//	setPosition(Vector3f(0,0,0));
 //	Cursor->setPosition(300,300);
 /*
 	// create default key map
@@ -49,12 +49,12 @@ void CCameraFPSNode::OnPreRender()
 {
 	IRender* render = SceneManager->getRender();
 
-	render->setTransform(MATRIX_PROJECTION, &Proj);
+//	render->setTransform(MATRIX_PROJECTION, &Proj);
 
 	//Вычисляем вектор направления
-	View.makeIdentity();
-	View.setInverseRotationDeg(getRotation());
-	Matrix4f mat;
+//	View.makeIdentity();
+//	View.setInverseRotationDeg(getRotation());
+//	Matrix4f mat;
 	mat.setInverseTranslation(getPosition());
 	
 	View = View*mat;
@@ -67,7 +67,7 @@ void CCameraFPSNode::OnPreRender()
 void CCameraFPSNode::Render()
 {
 	IRender* render = SceneManager->getRender();
-	render->setTransform(MATRIX_VIEW, &View);
+//	render->setTransform(MATRIX_VIEW, &View);
 };
 
 void CCameraFPSNode::OnPostRender(uInt timeMs)
@@ -82,7 +82,7 @@ void CCameraFPSNode::moveRelative(const Vector3f& vec)
 
 void CCameraFPSNode::recalculateProjectionMatrix()
 {
-	Proj.buildProjectionMatrixPerspectiveFovLH(fovy, aspect, zn, zf);
+//	Proj.buildProjectionMatrixPerspectiveFovLH(fovy, aspect, zn, zf);
 };
 
 

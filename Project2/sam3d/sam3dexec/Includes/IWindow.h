@@ -4,7 +4,7 @@
 #include "IFont.h"
 #include "IRender.h"
 #include "ICursor.h"
-#include "ITimer.h"
+//#include "ITimer.h"
 #include "ISceneManager.h"
 #include "Input.h"
 
@@ -22,9 +22,9 @@ public:
 	virtual bool getWinVisible()=0;
 	virtual void setWinVisible(bool set)=0;
 	virtual void SetCaption(char *str)=0;
-	virtual CInput* getInput() = 0;
+//	virtual CInput* getInput() = 0;
 	virtual IRender* getRender() = 0;
-	virtual ITimer* getTimer()= 0;
+//	virtual ITimer* getTimer()= 0;
 	virtual ICursor* getCursor() = 0;
 	virtual ISceneManager* getSceneManager()=0;
 	virtual Dimension2d<int> getWindowSize()=0;

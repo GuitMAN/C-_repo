@@ -11,26 +11,31 @@ namespace Sam3d
 	{
 	};
 
-	void CMesh::addSubMesh(ISubMesh* buf)
+	void CMesh::addMeshBuffer(IMeshBuffer* buf)
 	{
 		if (buf)
 		{
-			pSubMesh.push_back(buf);
+			pMeshBuffer.push_back(buf);
 		};
 	};
 	
-	ISubMesh* CMesh::getSubMesh(Sam3d::uInt id)
+	IMeshBuffer* CMesh::getMeshBuffer(Sam3d::uInt id)
 	{
-		return pSubMesh[id];
+		return pMeshBuffer[id];
 	};
 
-	SMaterial& CMesh::getMaterialSubMesh(uInt id)
-	{
-		return pSubMesh[id]->getMaterial();
-	};
+//	SMaterial& CMesh::getMaterialSubMesh(uInt id)
+//	{
+//		return pSubMesh[id]->getMaterial();
+//	};
 
+	//Delete vector of pMeshBuffer
 	void CMesh::deleteMesh()
 	{
+		while (!pMeshBuffer.empty())
+		{
+			pMeshBuffer.pop_back();
+		}
 	};
 
 };

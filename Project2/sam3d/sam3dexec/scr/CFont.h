@@ -12,7 +12,7 @@ namespace Sam3d
 	{
 	public:
 		CFont(ISceneNode* parent, ISceneManager* mgr, int id, IRender* driver)
-			:CFont(parent, mgr, id), Driver(driver), Texture(0)
+			//			:CFont(parent, mgr, id), Driver(driver), Texture(0)
 		{};
 		virtual ~CFont() {};
 		virtual bool Load(char* name);
@@ -20,10 +20,10 @@ namespace Sam3d
 		virtual void Render() {};
 
 	private:
-		bool loadTexture(ITexture* texture);
+		//		bool loadTexture(ITexture* texture);
 		RECT offset[256];
 		IRender* Driver;
-		ITexture* Texture;
-	}
+		//		ITexture* Texture;
+	};
 
-}
+};

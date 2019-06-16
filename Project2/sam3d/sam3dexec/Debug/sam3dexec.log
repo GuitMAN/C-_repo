@@ -1,27 +1,63 @@
-﻿  main.cpp
-  CCameraFPSNode.cpp
-D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не удается открыть файл включение: ../scr/core/Matrix4f.h: No such file or directory,
-  CDirect3D9Render.cpp
-D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не удается открыть файл включение: ../scr/core/Matrix4f.h: No such file or directory,
-  CFont.cpp
-D:\C++\Project2\sam3d\sam3dexec\scr\CDirect3D9Render.h(3,10): error C1083:  Не удается открыть файл включение: d3dx9tex.h: No such file or directory,
-  CImage.cpp
-  CMesh.cpp
-D:\C++\Project2\sam3d\sam3dexec\Includes\IRender.h(5,10): error C1083:  Не удается открыть файл включение: IShaders.h: No such file or directory,
-  CSceneManager.cpp
-D:\C++\Project2\sam3d\sam3dexec\scr\CMesh.h(1,10): error C1083:  Не удается открыть файл включение: ../Includes/IMesh.h: No such file or directory,
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Position2d.h(14,1): error C4430:  отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Position2d.h(37): message :  выполняется компиляция ссылки на экземпляр класс шаблон функции "Position2d<T>"
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Position2d.h(14,30): error C2143:  синтаксическая ошибка: отсутствие "," перед "<"
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Position2d.h(15,7): error C3861:  other: идентификатор не найден
-D:\C++\Project2\sam3d\sam3dexec\scr\core\Position2d.h(15,2): error C3861:  other: идентификатор не найден
-  CSkyBox.cpp
-D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не удается открыть файл включение: ../scr/core/Matrix4f.h: No such file or directory,
-  CTerrainSceneNode.cpp
-D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не удается открыть файл включение: ../scr/core/Matrix4f.h: No such file or directory,
-  CWindow.cpp
-D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не удается открыть файл включение: ../scr/core/Matrix4f.h: No such file or directory,
-  App.cpp
-D:\C++\Project2\sam3d\sam3dexec\Includes\IRender.h(5,10): error C1083:  Не удается открыть файл включение: IShaders.h: No such file or directory,
-  Создание кода...
-D:\C++\Project2\sam3d\sam3dexec\Includes\ISceneNode.h(6,10): error C1083:  Не удается открыть файл включение: ../scr/core/Matrix4f.h: No such file or directory,
+﻿  CSkyBox.cpp
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(15,2): error C2011:  Sam3d::ECOLOR_FORMAT: переопределение типа "enum"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(14): message :   см. объявление "Sam3d::ECOLOR_FORMAT"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(128,20): error C2374:  Sam3d::ColorFormatNames: переопределение; множественная инициализация
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(128): message :   см. объявление "Sam3d::ColorFormatNames"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(167,55): error C2572:  Sam3d::RGBA16: переопределение параметра по умолчанию: параметр 1
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(167): message :   см. объявление "Sam3d::RGBA16"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(168,2): error C2084:  функция "short Sam3d::RGBA16(Sam3d::uInt,Sam3d::uInt,Sam3d::uInt,Sam3d::uInt)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(167): message :  см. предыдущее определение "RGBA16"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(178,2): error C2084:  функция "Sam3d::uShort Sam3d::RGB16(Sam3d::uInt,Sam3d::uInt,Sam3d::uInt)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(177): message :  см. предыдущее определение "RGB16"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(179,10): error C2065:  RGBA16: необъявленный идентификатор
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(185,2): error C2084:  функция "Sam3d::uShort Sam3d::RGB16from16(Sam3d::uShort,Sam3d::uShort,Sam3d::uShort)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(184): message :  см. предыдущее определение "RGB16from16"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(195,2): error C2084:  функция "Sam3d::uShort Sam3d::X8R8G8B8toA1R5G5B5(Sam3d::uInt)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(194): message :  см. предыдущее определение "X8R8G8B8toA1R5G5B5"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(205,2): error C2084:  функция "Sam3d::uShort Sam3d::A8R8G8B8toA1R5G5B5(Sam3d::uInt)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(204): message :  см. предыдущее определение "A8R8G8B8toA1R5G5B5"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(215,2): error C2084:  функция "Sam3d::uShort Sam3d::A8R8G8B8toR5G6B5(Sam3d::uInt)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(214): message :  см. предыдущее определение "A8R8G8B8toR5G6B5"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(225,2): error C2084:  функция "Sam3d::uInt Sam3d::A1R5G5B5toA8R8G8B8(Sam3d::uShort)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(224): message :  см. предыдущее определение "A1R5G5B5toA8R8G8B8"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(236,2): error C2084:  функция "Sam3d::uInt Sam3d::R5G6B5toA8R8G8B8(Sam3d::uShort)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(235): message :  см. предыдущее определение "R5G6B5toA8R8G8B8"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(246,2): error C2084:  функция "Sam3d::uShort Sam3d::R5G6B5toA1R5G5B5(Sam3d::uShort)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(245): message :  см. предыдущее определение "R5G6B5toA1R5G5B5"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(253,2): error C2084:  функция "Sam3d::uShort Sam3d::A1R5G5B5toR5G6B5(Sam3d::uShort)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(252): message :  см. предыдущее определение "A1R5G5B5toR5G6B5"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(263,2): error C2084:  функция "Sam3d::uInt Sam3d::getAlpha(Sam3d::uShort)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(262): message :  см. предыдущее определение "getAlpha"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(271,2): error C2084:  функция "Sam3d::uInt Sam3d::getRed(Sam3d::uShort)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(270): message :  см. предыдущее определение "getRed"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(279,2): error C2084:  функция "Sam3d::uInt Sam3d::getGreen(Sam3d::uShort)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(278): message :  см. предыдущее определение "getGreen"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(287,2): error C2084:  функция "Sam3d::uInt Sam3d::getBlue(Sam3d::uShort)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(286): message :  см. предыдущее определение "getBlue"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(294,2): error C2084:  функция "Sam3d::sInt Sam3d::getAverage(Sam3d::sShort)" уже имеет текст реализации
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(293): message :  см. предыдущее определение "getAverage"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(295,12): error C2065:  getRed: необъявленный идентификатор
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(295,30): error C2296:  <<: недопустимо, левый операнд имеет тип "Sam3d::uInt (__cdecl *)(Sam3d::uShort)"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(295,35): error C2065:  getGreen: необъявленный идентификатор
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(295,55): error C2296:  <<: недопустимо, левый операнд имеет тип "Sam3d::uInt (__cdecl *)(Sam3d::uShort)"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(295,60): error C2065:  getBlue: необъявленный идентификатор
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(295,79): error C2296:  <<: недопустимо, левый операнд имеет тип "Sam3d::uInt (__cdecl *)(Sam3d::uShort)"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(309,2): error C2011:  Sam3d::SColor: переопределение типа "class"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(308): message :   см. объявление "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(528,2): error C2011:  Sam3d::SColorf: переопределение типа "class"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(527): message :   см. объявление "Sam3d::SColorf"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\S3DVertex.h(33,14): error C2079:  "Sam3d::S3DVertex::Color" использует не имеющую определения структуру class "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\S3DVertex.h(14,28): error C2027:  использование неопределенного типа "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(308): message :   см. объявление "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\S3DVertex.h(19,11): error C2027:  использование неопределенного типа "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(308): message :   см. объявление "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\S3DVertex.h(27,11): error C2027:  использование неопределенного типа "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(308): message :   см. объявление "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\S3DVertex.h(55,14): error C2079:  "Sam3d::S3DVertex2TCoords::Color" использует не имеющую определения структуру class "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\S3DVertex.h(43,22): error C2027:  использование неопределенного типа "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(308): message :   см. объявление "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\S3DVertex.h(42,3): error C2439:  Sam3d::S3DVertex2TCoords::Color: не удается инициализировать член
+D:\C++\Project2\sam3d\sam3dexec\scr\core\S3DVertex.h(55): message :   см. объявление "Sam3d::S3DVertex2TCoords::Color"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\S3DVertex.h(48,11): error C2027:  использование неопределенного типа "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(308): message :   см. объявление "Sam3d::SColor"
+D:\C++\Project2\sam3d\sam3dexec\scr\CSkyBox.cpp(11,3): error C2065:  Pos: необъявленный идентификатор

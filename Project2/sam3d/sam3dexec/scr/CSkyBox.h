@@ -2,7 +2,7 @@
 
 #include "../Includes/ISceneNode.h"
 #include "../Includes/ISceneManager.h"
-#include "../Includes/ITexture.h"
+//#include "../Includes/ITexture.h"
 #include "../scr/core/S3DVertex.h"
 
 namespace Sam3d
@@ -11,8 +11,8 @@ namespace Sam3d
 class CSkyBox: public ISceneNode
 {
 public:	
-	CSkyBox(ITexture *top,ITexture *bottom,ITexture *left, ITexture *right,
-		ITexture *front,ITexture *back, ISceneNode* parent, ISceneManager* mgr, int id);
+//	CSkyBox(ITexture *top,ITexture *bottom,ITexture *left, ITexture *right,
+//		ITexture *front,ITexture *back, ISceneNode* parent, ISceneManager* mgr, int id);
 	~CSkyBox(void);
 
 	virtual void OnPreRender();
@@ -23,7 +23,7 @@ protected:
 
 	uShort Indices[4];
 	SRenderOp Op;
-	SMaterial Mat[6];
+//	SMaterial Mat[6];
 	
 };
 

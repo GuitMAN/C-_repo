@@ -1,4 +1,6 @@
 #pragma once
+#include "../core/dimension2d.h"
+
 //! Specifies a 2 dimensional size.
 template <class T>
 class Position2d

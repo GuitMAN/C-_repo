@@ -105,8 +105,8 @@ LRESULT MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 		{
 			if ((wParam >= 0) && (wParam <= 255))
 			{ 
-				win->Input->keys.keyDown [wParam] = true;
-				win->Input->lastKeyDown = (OIS::KEY_CODES)wParam;
+//				win->Input->keys.keyDown [wParam] = true;
+//				win->Input->lastKeyDown = (OIS::KEY_CODES)wParam;
 			}
 		}
 		return 0;
@@ -125,38 +125,38 @@ LRESULT MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 		break;
 
 		case WM_LBUTTONDOWN:								// Left mouse button is pressed
-			win->Input->Mouse.LButtonDown=TRUE;
+//			win->Input->Mouse.LButtonDown=TRUE;
 			win->Cursor->Position.x=LOWORD(lParam);
 			win->Cursor->Position.y=HIWORD(lParam);
 		return 0;
 
 		case WM_RBUTTONDOWN:								// Right mouse button is pressed
 			win = getDeviceFromHWnd(hWnd);
-			win->Input->Mouse.RButtonDown=TRUE;
+	//		win->Input->Mouse.RButtonDown=TRUE;
 			win->Cursor->Position.x=LOWORD(lParam);
 			win->Cursor->Position.y=HIWORD(lParam);				
 		return 0;
 
 		case WM_MBUTTONDOWN:								// Middle mouse button is pressed
-			win->Input->Mouse.MidButtonDown=TRUE;
+//			win->Input->Mouse.MidButtonDown=TRUE;
 			win->Cursor->Position.x=LOWORD(lParam);
 			win->Cursor->Position.y=HIWORD(lParam);
 		return 0;
 
 		case WM_MBUTTONUP:								// Middle mouse button is pressed
-			win->Input->Mouse.MidButtonDown=FALSE;
+//			win->Input->Mouse.MidButtonDown=FALSE;
 			win->Cursor->Position.x=LOWORD(lParam);
 			win->Cursor->Position.y=HIWORD(lParam);
 		return 0;		
 
 		case WM_LBUTTONUP:								// Left mouse button is pressed
-			win->Input->Mouse.LButtonDown=FALSE;
+//			win->Input->Mouse.LButtonDown=FALSE;
 			win->Cursor->Position.x=LOWORD(lParam);
 			win->Cursor->Position.y=HIWORD(lParam);
 		return 0;
 
 		case WM_RBUTTONUP:								// Right mouse button is pressed
-			win->Input->Mouse.RButtonDown=FALSE;
+//			win->Input->Mouse.RButtonDown=FALSE;
 			win->Cursor->Position.x=LOWORD(lParam);
 			win->Cursor->Position.y=HIWORD(lParam);
 		return 0;
@@ -165,8 +165,8 @@ LRESULT MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 		{	
 			if ((wParam >= 0) && (wParam <= 255)) 					
 			{
-				win->Input->keys.keyDown [wParam] = false;	
-				win->Input->lastKeyDown = (OIS::KEY_CODES)wParam;
+//				win->Input->keys.keyDown [wParam] = false;	
+//				win->Input->lastKeyDown = (OIS::KEY_CODES)wParam;
 				return 0;											
 			}
 		}
@@ -181,8 +181,7 @@ LRESULT MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 		return 0;
 		case WM_MOUSEWHEEL:
 		{
-			win->Input->Mouse.Wheel= (int)wParam;
-			win->SetCaption("Бля!");
+//			win->Input->Mouse.Wheel= (int)wParam;
 		}
 		return 0;
 
@@ -207,7 +206,7 @@ isFullScreen(fullScreen),Caption(caption)
 
 	HINSTANCE hInstance = GetModuleHandle(0);
 	WNDCLASSEX windowsclass; // Создем класс
-	char* className = "SWindow";
+//	char* className = "SWindow";
 		     // Создаем дескриптор окна
 	          // Сообщение
 	// Определим класс окна WNDCLASSEX
@@ -221,7 +220,7 @@ isFullScreen(fullScreen),Caption(caption)
 	windowsclass.hCursor		= LoadCursor(NULL, IDC_ARROW);
 	windowsclass.hbrBackground	= (HBRUSH)GetStockObject(GRAY_BRUSH);
 	windowsclass.lpszMenuName	= NULL;
-	windowsclass.lpszClassName	= className;
+	windowsclass.lpszClassName = "";//className;
 	windowsclass.hIconSm        = LoadIcon(NULL, IDI_APPLICATION);
 
 	// Зарегестрируем класс
@@ -248,7 +247,7 @@ isFullScreen(fullScreen),Caption(caption)
 	AdjustWindowRect(&clientSize, style, FALSE);
 	
 	if (!(hWnd = CreateWindowEx(NULL,				// стиль окна
-                            className,	// класс
+                            "",///className,	// класс
 							Caption.c_str(),    // название окна
 						    style, //WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 					 	    0,0,				// левый верхний угол
@@ -273,11 +272,11 @@ isFullScreen(fullScreen),Caption(caption)
 		return;
 	};
 
-	Input = new CInput();
+//	Input = new CInput();
 	Cursor = new CCursor(hWnd, isFullScreen);
-	Timer = new CTimer();
+//	Timer = new CTimer();
 
-	SceneManager = CreateSceneManager(Render,Timer);
+//	SceneManager = CreateSceneManager(Render,Timer);
 
 	SEnvMapper em;
 	em.SamWin = this;
@@ -303,8 +302,8 @@ CWindow::~CWindow(void)
 	DestroyWindow(hWnd); 
 
 	if (SceneManager) SceneManager->Release();
-	if (Input) delete Input;
-	if (Timer) Timer->Release();
+//	if (Input) delete Input;
+//	if (Timer) Timer->Release();
 	if (ChangedToFullScreen)
 	if (Render) Render->Release();
 	if (Cursor) delete Cursor;
@@ -375,7 +374,7 @@ bool CWindow::Run()
 //	if (!quit)
 //		resizeIfNecessary();
 
-	Render->registerFrame(Timer->getTime());
+//	Render->registerFrame(Timer->getTime());
 
 	return !quit;
 };
@@ -390,10 +389,10 @@ ICursor* CWindow::getCursor()
 	return Cursor;
 }
 
-ITimer* CWindow::getTimer()
-{
-	return Timer;
-}
+//ITimer* CWindow::getTimer()
+//{
+//	return Timer;
+//}
 
 ISceneManager* CWindow::getSceneManager()
 {

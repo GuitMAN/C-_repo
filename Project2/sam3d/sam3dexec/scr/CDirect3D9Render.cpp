@@ -1,7 +1,7 @@
 #include "CDirect3D9Render.h"
-#include "CDirectX9Texture.h"
+//#include "CDirectX9Texture.h"
 
-
+/*
 namespace Sam3d
 {
 
@@ -63,7 +63,7 @@ bool CDirect3D9Render::Init()
 			return 0;
 		}
 	}
-	RenderMaterial = new CDirect3D9MaterialRender(pDD);
+//	RenderMaterial = new CDirect3D9MaterialRender(pDD);
 	resetAllmaterial = true;
 
 	return true;
@@ -573,11 +573,11 @@ void CDirect3D9Render::setMaterial(const SMaterial& material)
 	if (LastMaterial.GouraudShading != material.GouraudShading)
 	{
 		if (material.GouraudShading)
-*/			pDD->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
-/*		else
+			pDD->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
+		else
 			pDD->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_FLAT);
 	}
-*/
+
 	// lighting
 	if (resetAllmaterial || LastMaterial.Lighting != material.Lighting)
 	{
@@ -739,3 +739,5 @@ void CDirect3D9Render::setLightingEnabled(bool enabled)
 };
 
 };
+
+*/

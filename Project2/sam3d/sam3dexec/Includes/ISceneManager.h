@@ -31,8 +31,8 @@ class ISceneManager: public virtual IBase
 public:
 	//! destructor
 	virtual ~ISceneManager() {};
-	virtual ISceneNode* addSkyBoxNode(ITexture *top, ITexture *bottom, ITexture *left, ITexture *right,
-		ITexture *front, ITexture *back, ISceneNode* parent = 0, int id = -1) = 0;
+//	virtual ISceneNode* addSkyBoxNode(ITexture *top, ITexture *bottom, ITexture *left, ITexture *right,
+//		ITexture *front, ITexture *back, ISceneNode* parent = 0, int id = -1) = 0;
 	virtual ITerrainSceneNode* addTerrainNode(const char* heightMapFileName, TerrainOption mOption, const Vector3f& position = Vector3f(0,0,0),
 									const Vector3f& rotation = Vector3f(0,0,0),	const Vector3f& scale = Vector3f(1.0f, 1.0f, 1.0f), 
 									ISceneNode* parent = 0, int id = -1) = 0;
@@ -44,7 +44,7 @@ public:
 	virtual void Render()=0;
 	virtual IRender* getRender()=0;
 	virtual uInt getTime()=0;
-	virtual bool postInputFromUser(CInput* input)=0;
+//	virtual bool postInputFromUser(CInput* input)=0;
 };
 
 

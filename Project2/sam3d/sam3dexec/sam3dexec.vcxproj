@@ -147,6 +147,7 @@
     <ClInclude Include="Includes\IMesh.h" />
     <ClInclude Include="Includes\IMeshBuffer.h" />
     <ClInclude Include="Includes\includes.h" />
+    <ClInclude Include="Includes\Input.h" />
     <ClInclude Include="Includes\IRender.h" />
     <ClInclude Include="Includes\ISceneManager.h" />
     <ClInclude Include="Includes\ISceneNode.h" />

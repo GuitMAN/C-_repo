@@ -2,9 +2,9 @@
 
 #include "../Includes/IWindow.h"         // Подключаем заголовочный файл Windows
 #include "../Includes/input.h"
-#include "CTimer.h"
+//#include "CTimer.h"
 
-#include <list>
+//#include <list>
 
 
 #define WIN32_LEAN_AND_MEAN
@@ -27,9 +27,9 @@ public:
 	virtual void setWinVisible(bool set);
 	virtual IRender* getRender();
 	virtual ICursor* getCursor();
-	virtual ITimer* getTimer();
+//	virtual ITimer* getTimer();
 	virtual ISceneManager* getSceneManager();
-	virtual CInput* getInput(){return Input;};
+//	virtual CInput* getInput(){return Input;};
 	virtual Dimension2d<int> getWindowSize();
 	class CCursor: public ICursor
 	{
@@ -62,7 +62,7 @@ public:
 		int BorderX, BorderY;
 	};
 	CCursor *Cursor;
-	CInput	*Input;
+//	CInput	*Input;
 
 	int				bitsPerPixel;	// Бит на пиксель
 	bool			isFullScreen;	// Полноэкранное?
@@ -74,7 +74,7 @@ private:
 	IRender	*Render;
 	ISceneManager* SceneManager;
 	String	Caption;
-	ITimer	*Timer;
+//	ITimer	*Timer;
 	Dimension2d<int> WindowSize;	//Размеры окна
 	HWND			hWnd;			// Хэндл окна
 

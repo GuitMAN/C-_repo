@@ -6,7 +6,7 @@
 #include "../Includes/ICameraSceneNode.h"
 
 #include "../Includes/IRender.h"
-#include "../Includes/ITimer.h"
+//#include "../Includes/ITimer.h"
 #include "../Includes/ISceneManager.h"
 #include "../Includes/ITerrainSceneNode.h"
 
@@ -16,11 +16,11 @@ namespace Sam3d
 class CSceneManager: public ISceneManager, ISceneNode
 {
 public:	
-	CSceneManager(IRender *render, ITimer* Timer);
+//	CSceneManager(IRender *render, ITimer* Timer);
 	//! destructor
 	virtual ~CSceneManager();
-	virtual ISceneNode* addSkyBoxNode(ITexture *top, ITexture *bottom, ITexture *left, ITexture *right,
-		ITexture *front, ITexture *back, ISceneNode* parent = 0, int id = -1);
+//	virtual ISceneNode* addSkyBoxNode(ITexture *top, ITexture *bottom, ITexture *left, ITexture *right,
+//		ITexture *front, ITexture *back, ISceneNode* parent = 0, int id = -1);
 	virtual ITerrainSceneNode* addTerrainNode(const char* heightMapFileName, TerrainOption mOption, const Vector3f& position = Vector3f(0,0,0),
 									const Vector3f& rotation = Vector3f(0,0,0),	const Vector3f& scale = Vector3f(1.0f, 1.0f, 1.0f), 
 									ISceneNode* parent = 0, int id = -1);
@@ -34,13 +34,13 @@ public:
 	virtual IRender* getRender();
 	virtual uInt getTime();
 	
-	virtual bool postInputFromUser(CInput* input);
+//	virtual bool postInputFromUser(CInput* input);
 
 private:
 	
 	//”казатель на класс рендера
 	IRender* CurRender;
-	ITimer* Timer;
+//	ITimer* Timer;
 
 	std::vector<ISceneNode*> LightAndCameraList;
 	std::vector<ISceneNode*> SkyBoxList;
@@ -51,6 +51,6 @@ private:
 	Vector3f camTransPos; // Position of camera for transparent nodes.
 };
 
-ISceneManager* CreateSceneManager(IRender *render, ITimer* timer);
+//ISceneManager* CreateSceneManager(IRender *render, ITimer* timer);
 
 };

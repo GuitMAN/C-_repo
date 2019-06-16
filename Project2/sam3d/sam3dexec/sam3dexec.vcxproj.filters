@@ -170,5 +170,8 @@
     <ClInclude Include="scr\core\Vector2f.h">
       <Filter>Исходные файлы\scr\core</Filter>
     </ClInclude>
+    <ClInclude Include="Includes\Input.h">
+      <Filter>Файлы заголовков\Includes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

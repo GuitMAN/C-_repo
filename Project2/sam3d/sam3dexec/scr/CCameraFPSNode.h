@@ -3,7 +3,7 @@
 #include "../Includes/ICameraSceneNode.h"
 #include "../Includes/ICursor.h"
 #include "../Includes/Input.h"
-#include <vector>
+//#include <vector>
 
 namespace Sam3d
 {
@@ -20,7 +20,7 @@ enum DEF_CAMERA
 struct SKeyMap
 {
 	DEF_CAMERA Action;
-	OIS::KEY_CODES KeyCode;
+//	OIS::KEY_CODES KeyCode;
 };
 
 
@@ -42,8 +42,8 @@ protected:
 //	void Move(DEF_CAMERA dir);
 
 
-	Matrix4f Proj; //Проекционная матрица
-	Matrix4f View; //Видовая матрица камеры
+//	Matrix4f Proj; //Проекционная матрица
+//	Matrix4f View; //Видовая матрица камеры
 
 	Vector3f Target;
 	Vector3f UpVector;
@@ -61,10 +61,10 @@ protected:
 	struct SCamKeyMap
 	{
 		SCamKeyMap() {};
-		SCamKeyMap(int a, OIS::KEY_CODES k) : action(a), keycode(k) {}
+//		SCamKeyMap(int a, OIS::KEY_CODES k) : action(a), keycode(k) {}
 
 		int action;
-		OIS::KEY_CODES keycode;
+//		OIS::KEY_CODES keycode;
 	};
 	bool CursorKeys[4];
 	std::vector<SCamKeyMap> KeyMap;

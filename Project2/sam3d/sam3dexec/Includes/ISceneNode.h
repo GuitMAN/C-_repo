@@ -3,9 +3,9 @@
 #include "IBase.h"
 #include <string>
 #include <list>
-#include "../scr/core/Matrix4f.h"
-#include "../scr/core/Quaternionf.h"
-#include "../scr/core/SMaterial.h"
+//#include "../scr/core/Matrix4f.h"
+//#include "../scr/core/Quaternionf.h"
+//#include "../scr/core/SMaterial.h"
 #include "../scr/core/Vector3f.h"
 
 namespace Sam3d
@@ -179,11 +179,12 @@ public:
 	{
 		return SceneManager;
 	};
-	virtual Matrix4f getTransformation()
-	{
-		Matrix4f mat;
-		mat.setRotationDeg(Rotation);
-		mat.setTranslation(Translation);
+
+//	virtual Matrix4f getTransformation()
+//	{
+//		Matrix4f mat;
+//		mat.setRotationDeg(Rotation);
+//		mat.setTranslation(Translation);
 /*
 		if (Scale != Vector3f(1,1,1))
 		{
@@ -192,43 +193,43 @@ public:
 			mat *= smat;
 		}
 */
-		return mat;
-	};
+//		return mat;
+//	};
 
-	virtual SMaterial& getMaterial(int i)
-	{
-		return *((SMaterial*)0);
-	}
-	
-	void setMaterialTexture(int textureLayer, ITexture* texture)
-	{
-		if (textureLayer<0)
-			return;
+//	virtual SMaterial& getMaterial(int i)
+//	{
+//		return *((SMaterial*)0);
+//	}
+//	
+//	void setMaterialTexture(int textureLayer, ITexture* texture)
+///	{
+//		if (textureLayer<0)
+//			return;
 
 	//	for (int i=0; i<getMaterialCount(); ++i)
-					getMaterial(0).Texture[textureLayer] = texture;
-	};
+//					getMaterial(0).Texture[textureLayer] = texture;
+//	};
 
 
 
 	virtual void setRotation(Vector3f& newrot)
 	{
-		Rotation = newrot;
-		Rotate.FromEuler(Rotation);
+//		Rotation = newrot;
+//		Rotate.FromEuler(Rotation);
 	};
 	
-	virtual Quaternionf getRotateQuant()
-	{
-		return Rotate;
+//	virtual Quaternionf getRotateQuant()
+//	{
+//		return Rotate;
 
-	};
+//	};
 
 	virtual Vector3f getRotation()
 	{
 		return Rotation;
 	};
 
-	virtual void setScale(Vector3f& newscale)
+	virtual void setScale(const Vector3f& newscale)
 	{
 		Scale = newscale;
 	};
@@ -249,10 +250,10 @@ public:
 	//! updates the absolute position based on the relative and the parents position
 	virtual void UpdateAbsolutePosition()
 	{
-		if (Parent)
-			AbsoluteTransformation = Parent->getTransformation() * getTransformation();
-		else
-			AbsoluteTransformation = getTransformation();
+	//	if (Parent)
+	//		AbsoluteTransformation = Parent->getTransformation() * getTransformation();
+	//	else
+	//		AbsoluteTransformation = getTransformation();
 	}
 
 
@@ -263,9 +264,9 @@ protected:
 	//! id of the node.
     int ID;
 	//вращение
-	Quaternionf Rotate; 
+//	Quaternionf Rotate; 
 	//! Матрица трансцормации объекта
-	Matrix4f AbsoluteTransformation;
+//	Matrix4f AbsoluteTransformation;
 	//! Вектор трансляции относительно сцены
 	Vector3f Translation;
 	//! Поворот относительно сцены
