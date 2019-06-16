@@ -27,7 +27,7 @@ private:
 	{
 		++ReferenceCounter;
 	};
-	int	ReferenceCounter;
+	int	ReferenceCounter =0;
 };
 
 };

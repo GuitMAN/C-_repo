@@ -56,7 +56,7 @@ namespace Sam3d
 		}
 	}
 
-	int __inline roundf(float& x)
+	__inline const int roundf(const float& x)
 	{
 		int n;
 		_asm
@@ -122,31 +122,7 @@ namespace Sam3d
 		return a;
 	};
 
-	//! returns minimum of two values. Own implementation to get rid of the STL (VS6 problems)
-	template<class T>
-	inline const T& min_(const T& a, const T& b)
-	{
-		return a < b ? a : b;
-	}
+	
 
-	//! returns minimum of three values. Own implementation to get rid of the STL (VS6 problems)
-	template<class T>
-	inline const T& min_(const T& a, const T& b, const T& c)
-	{
-		return a < b ? min_(a, c) : min_(b, c);
-	}
-
-	//! returns maximum of two values. Own implementation to get rid of the STL (VS6 problems)
-	template<class T>
-	inline const T& max_(const T& a, const T& b)
-	{
-		return a < b ? b : a;
-	}
-
-	//! returns maximum of three values. Own implementation to get rid of the STL (VS6 problems)
-	template<class T>
-	inline const T& max_(const T& a, const T& b, const T& c)
-	{
-		return a < b ? max_(b, c) : max_(a, c);
-	}
+	
 }

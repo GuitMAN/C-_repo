@@ -161,5 +161,8 @@
     <ClInclude Include="scr\core\Position2d.h">
       <Filter>Исходные файлы\scr\core</Filter>
     </ClInclude>
+    <ClInclude Include="Includes\IMesh.h">
+      <Filter>Файлы заголовков\Includes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

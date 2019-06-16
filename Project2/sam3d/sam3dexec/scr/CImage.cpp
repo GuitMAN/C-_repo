@@ -5,16 +5,14 @@ namespace Sam3d
 {
 
 	//! constructor
-	CImage::CImage(ECOLOR_FORMAT format, const Dimension2d<int>& size)
-		: Format(format), Size(size), Data(0)
+	CImage::CImage(ECOLOR_FORMAT format, const Dimension2d<int>& size) :Format(format), Size(size), Data(0)
 	{
 		initData();
 	}
 
 
 	//! constructor
-	CImage::CImage(ECOLOR_FORMAT format, const Dimension2d<int>& size, void* data)
-		: Format(format), Size(size), Data(0)
+	CImage::CImage(ECOLOR_FORMAT format, const Dimension2d<int>& size, void* data) :Format(format), Size(size), Data(0)
 	{
 		Data = (void*)0xbadf00d;
 
@@ -27,7 +25,7 @@ namespace Sam3d
 	{
 		switch (Format)
 		{
-		case ECF_L8:
+		case ECF_R8:
 			BitsPerPixel = 8; break;
 		case ECF_A1R5G5B5:
 			BitsPerPixel = 16; break;
@@ -84,7 +82,7 @@ namespace Sam3d
 
 		switch (Format)
 		{
-		case ECF_L8:
+		case ECF_R8:
 			return ((char*)Data)[y * Size.Width + x];
 		case ECF_A1R5G5B5:
 			return A1R5G5B5toA8R8G8B8(((short*)Data)[y * Size.Width + x]);
@@ -131,6 +129,7 @@ namespace Sam3d
 	{
 		return Size.Width * Size.Height;
 	}
-
-
 }
+
+
+

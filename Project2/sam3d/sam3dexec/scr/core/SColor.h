@@ -1,5 +1,6 @@
-#pragma once
 #include "UserMath.h"
+#include "../../Includes/Types.h"
+
 
 
 namespace Sam3d
@@ -163,7 +164,7 @@ namespace Sam3d
 
 
 	//! Creates a 16 bit A1R5G5B5 color
-	inline short RGBA16(int r, int g, uInt b, uInt a = 0xFF)
+	inline short RGBA16(uInt r, uInt g, uInt b, uInt a = 0xFF)
 	{
 		return (uShort)((a & 0x80) << 8 |
 			(r & 0xF8) << 7 |
@@ -173,7 +174,7 @@ namespace Sam3d
 
 
 	//! Creates a 16 bit A1R5G5B5 color
-	inline uShort RGB16(int r, int g, int b)
+	inline uShort RGB16(uInt r, uInt g, uInt b)
 	{
 		return RGBA16(r, g, b);
 	}
@@ -190,7 +191,7 @@ namespace Sam3d
 
 
 	//! Converts a 32bit (X8R8G8B8) color to a 16bit A1R5G5B5 color
-	inline uShort X8R8G8B8toA1R5G5B5(int color)
+	inline uShort X8R8G8B8toA1R5G5B5(uInt color)
 	{
 		return (uShort)(0x8000 |
 			(color & 0x00F80000) >> 9 |
@@ -200,7 +201,7 @@ namespace Sam3d
 
 
 	//! Converts a 32bit (A8R8G8B8) color to a 16bit A1R5G5B5 color
-	inline uShort A8R8G8B8toA1R5G5B5(int color)
+	inline uShort A8R8G8B8toA1R5G5B5(uInt color)
 	{
 		return (uShort)((color & 0x80000000) >> 16 |
 			(color & 0x00F80000) >> 9 |
@@ -210,7 +211,7 @@ namespace Sam3d
 
 
 	//! Converts a 32bit (A8R8G8B8) color to a 16bit R5G6B5 color
-	inline uShort A8R8G8B8toR5G6B5(int color)
+	inline uShort A8R8G8B8toR5G6B5(uInt color)
 	{
 		return (uShort)((color & 0x00F80000) >> 8 |
 			(color & 0x0000FC00) >> 5 |
@@ -220,7 +221,7 @@ namespace Sam3d
 
 	//! Convert A8R8G8B8 Color from A1R5G5B5 color
 	/** build a nicer 32bit Color by extending dest lower bits with source high bits. */
-	inline int A1R5G5B5toA8R8G8B8(uShort color)
+	inline uInt A1R5G5B5toA8R8G8B8(uShort color)
 	{
 		return (((-((sInt)color & 0x00008000) >> (sInt)31) & 0xFF000000) |
 			((color & 0x00007C00) << 9) | ((color & 0x00007000) << 4) |
@@ -231,7 +232,7 @@ namespace Sam3d
 
 
 	//! Returns A8R8G8B8 Color from R5G6B5 color
-	inline int R5G6B5toA8R8G8B8(uShort color)
+	inline uInt R5G6B5toA8R8G8B8(uShort color)
 	{
 		return 0xFF000000 |
 			((color & 0xF800) << 8) |
@@ -258,7 +259,7 @@ namespace Sam3d
 	//! Returns the alpha component from A1R5G5B5 color
 	/** In Irrlicht, alpha refers to opacity.
 	\return The alpha value of the color. 0 is transparent, 1 is opaque. */
-	inline int getAlpha(uShort color)
+	inline uInt getAlpha(uShort color)
 	{
 		return ((color >> 15) & 0x1);
 	}
@@ -266,7 +267,7 @@ namespace Sam3d
 
 	//! Returns the red component from A1R5G5B5 color.
 	/** Shift left by 3 to get 8 bit value. */
-	inline int getRed(uShort color)
+	inline uInt getRed(uShort color)
 	{
 		return ((color >> 10) & 0x1F);
 	}
@@ -274,7 +275,7 @@ namespace Sam3d
 
 	//! Returns the green component from A1R5G5B5 color
 	/** Shift left by 3 to get 8 bit value. */
-	inline int getGreen(uShort color)
+	inline uInt getGreen(uShort color)
 	{
 		return ((color >> 5) & 0x1F);
 	}
@@ -282,7 +283,7 @@ namespace Sam3d
 
 	//! Returns the blue component from A1R5G5B5 color
 	/** Shift left by 3 to get 8 bit value. */
-	inline int getBlue(uShort color)
+	inline uInt getBlue(uShort color)
 	{
 		return (color & 0x1F);
 	}
@@ -314,32 +315,31 @@ namespace Sam3d
 
 		//! Constructs the color from 4 values representing the alpha, red, green and blue component.
 		/** Must be values between 0 and 255. */
-		SColor(int a, int r, int g, int b)
-			: color(((a & 0xff) << 24) | ((r & 0xff) << 16) | ((g & 0xff) << 8) | (b & 0xff)) {}
+		SColor(uInt a, uInt r, uInt g, uInt b): color(((a & 0xff) << 24) | ((r & 0xff) << 16) | ((g & 0xff) << 8) | (b & 0xff)) {}
 
 		//! Constructs the color from a 32 bit value. Could be another color.
-		SColor(int clr)
+		SColor(uInt clr)
 			: color(clr) {}
 
 		//! Returns the alpha component of the color.
 		/** The alpha component defines how opaque a color is.
 		\return The alpha value of the color. 0 is fully transparent, 255 is fully opaque. */
-		int getAlpha() const { return color >> 24; }
+		uInt getAlpha() const { return color >> 24; }
 
 		//! Returns the red component of the color.
 		/** \return Value between 0 and 255, specifying how red the color is.
 		0 means no red, 255 means full red. */
-		int getRed() const { return (color >> 16) & 0xff; }
+		uInt getRed() const { return (color >> 16) & 0xff; }
 
 		//! Returns the green component of the color.
 		/** \return Value between 0 and 255, specifying how green the color is.
 		0 means no green, 255 means full green. */
-		int getGreen() const { return (color >> 8) & 0xff; }
+		uInt getGreen() const { return (color >> 8) & 0xff; }
 
 		//! Returns the blue component of the color.
 		/** \return Value between 0 and 255, specifying how blue the color is.
 		0 means no blue, 255 means full blue. */
-		int getBlue() const { return color & 0xff; }
+		uInt getBlue() const { return color & 0xff; }
 
 		
 
@@ -350,7 +350,7 @@ namespace Sam3d
 		}
 
 		//! Get average intensity of the color in the range [0,255].
-		int getAverage() const
+		uInt getAverage() const
 		{
 			return (getRed() + getGreen() + getBlue()) / 3;
 		}
@@ -358,22 +358,22 @@ namespace Sam3d
 		//! Sets the alpha component of the Color.
 		/** The alpha component defines how transparent a color should be.
 		\param a The alpha value of the color. 0 is fully transparent, 255 is fully opaque. */
-		void setAlpha(int a) { color = ((a & 0xff) << 24) | (color & 0x00ffffff); }
+		void setAlpha(uInt a) { color = ((a & 0xff) << 24) | (color & 0x00ffffff); }
 
 		//! Sets the red component of the Color.
 		/** \param r: Has to be a value between 0 and 255.
 		0 means no red, 255 means full red. */
-		void setRed(int r) { color = ((r & 0xff) << 16) | (color & 0xff00ffff); }
+		void setRed(uInt r) { color = ((r & 0xff) << 16) | (color & 0xff00ffff); }
 
 		//! Sets the green component of the Color.
 		/** \param g: Has to be a value between 0 and 255.
 		0 means no green, 255 means full green. */
-		void setGreen(int g) { color = ((g & 0xff) << 8) | (color & 0xffff00ff); }
+		void setGreen(uInt g) { color = ((g & 0xff) << 8) | (color & 0xffff00ff); }
 
 		//! Sets the blue component of the Color.
 		/** \param b: Has to be a value between 0 and 255.
 		0 means no blue, 255 means full blue. */
-		void setBlue(int b) { color = (b & 0xff) | (color & 0xffffff00); }
+		void setBlue(uInt b) { color = (b & 0xff) | (color & 0xffffff00); }
 
 		//! Calculates a 16 bit A1R5G5B5 value of this color.
 		/** \return 16 bit A1R5G5B5 value of this color. */
@@ -406,7 +406,7 @@ namespace Sam3d
 		green.
 		\param b: Sets the blue component of the Color. Has to be a
 		value between 0 and 255. 0 means no blue, 255 means full blue. */
-		void set(int a, int r, int g, int b)
+		void set(uInt a, uInt r, uInt g, uInt b)
 		{
 			color = (((a & 0xff) << 24) | ((r & 0xff) << 16) | ((g & 0xff) << 8) | (b & 0xff));
 		}
@@ -433,6 +433,7 @@ namespace Sam3d
 				min_(getRed() + other.getRed(), 255u),
 				min_(getGreen() + other.getGreen(), 255u),
 				min_(getBlue() + other.getBlue(), 255u));
+
 		}
 
 		
@@ -512,7 +513,7 @@ namespace Sam3d
 		}
 
 		//! color in A8R8G8B8 Format
-		uInt color;
+		uInt color = 0;
 	};
 
 

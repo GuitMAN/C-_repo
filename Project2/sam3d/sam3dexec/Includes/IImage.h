@@ -7,16 +7,6 @@
 namespace Sam3d
 {
 
-	enum ECOLOR_FORMAT
-	{
-		ECF_A8 = 0,
-		ECF_L8,
-		ECF_A1R5G5B5,
-		ECF_R5G6B5,
-		ECF_R8G8B8,
-		ECF_A8R8G8B8,
-	};
-
 	class IImage : public IBase
 	{
 	public:
@@ -45,19 +35,8 @@ namespace Sam3d
 		//! fills the surface with black or white
 		virtual void fill(short color) = 0;
 
-	protected:
-		ECOLOR_FORMAT Format;
-		Dimension2d<int> Size;
+	
 
-		void* Data;
-		void* MipMapsData;
+	};
 
-		int BytesPerPixel;
-		int Pitch;
-
-		bool DeleteMemory;
-		bool DeleteMipMapsMemory;
-
-	}
-
-}
+};

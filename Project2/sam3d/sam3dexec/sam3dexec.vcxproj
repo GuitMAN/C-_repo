@@ -144,6 +144,7 @@
     <ClInclude Include="Includes\ICursor.h" />
     <ClInclude Include="Includes\IFont.h" />
     <ClInclude Include="Includes\IImage.h" />
+    <ClInclude Include="Includes\IMesh.h" />
     <ClInclude Include="Includes\includes.h" />
     <ClInclude Include="Includes\IRender.h" />
     <ClInclude Include="Includes\ISceneManager.h" />

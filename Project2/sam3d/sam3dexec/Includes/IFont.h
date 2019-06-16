@@ -5,7 +5,7 @@
 namespace Sam3d
 {
 
-	class IFont 
+	class IFont
 	{
 	public:
 		virtual ~IFont() {};
@@ -14,6 +14,6 @@ namespace Sam3d
 		virtual void Render() {};
 
 
-	}
+	};
 
-}
+};
