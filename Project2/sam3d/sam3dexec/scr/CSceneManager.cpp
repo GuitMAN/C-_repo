@@ -11,13 +11,13 @@
 namespace Sam3d
 {
 
-CSceneManager::CSceneManager(IRender *render, ITimer* timer):
+/*CSceneManager::CSceneManager(IRender *render, ITimer* timer):
 CurRender(render),ISceneManager(),ISceneNode(0, 0),ActiveCamera(0),
 Timer(timer)
 {
 //	MainConsole->Add(0,"Манеджер сцены создан");
 };
-
+*/
 
 CSceneManager::~CSceneManager()
 {
@@ -27,7 +27,7 @@ CSceneManager::~CSceneManager()
 }
 
 
-ISceneNode* CSceneManager::addSkyBoxNode(ITexture *top, ITexture *bottom, ITexture *left, ITexture *right,
+/*ISceneNode* CSceneManager::addSkyBoxNode(ITexture *top, ITexture *bottom, ITexture *left, ITexture *right,
 		ITexture *front, ITexture *back, ISceneNode* parent, int id)
 {
 	ISceneNode* node = new CSkyBox(top, bottom, left, right, 
@@ -37,7 +37,7 @@ ISceneNode* CSceneManager::addSkyBoxNode(ITexture *top, ITexture *bottom, ITextu
 	addChild(node);
 	return node;
 };
-
+*/
 ICameraSceneNode*  CSceneManager::addCamera(ISceneNode* parent, int id)
 {
 	ICameraSceneNode* node = new CCameraFPSNode(parent, this, id);
@@ -123,7 +123,7 @@ void CSceneManager::Render()
 		TransparentNodeList[i]->Render();
 	TransparentNodeList.clear();
 	
-	OnPostRender(Timer->getTime());
+//	OnPostRender(Timer->getTime());
 };
 
 
@@ -134,21 +134,21 @@ IRender* CSceneManager::getRender()
 
 uInt CSceneManager::getTime()
 {
-	return Timer->getTime();
+	return 0; //Timer->getTime();
 };
 
-bool CSceneManager::postInputFromUser(CInput *input)
-{
+//bool CSceneManager::postInputFromUser(CInput *input)
+//{
 //	if (ActiveCamera)
 //		ActiveCamera->OnInput(input);
 
-	return true;
-};
+//	return true;
+//};
 
-ISceneManager* CreateSceneManager(IRender *render, ITimer* timer)
-{
-	return new CSceneManager(render, timer);
-};
+//ISceneManager* CreateSceneManager(IRender *render, ITimer* timer)
+//{
+//	return new CSceneManager(render, timer);
+//};
 
 
 };

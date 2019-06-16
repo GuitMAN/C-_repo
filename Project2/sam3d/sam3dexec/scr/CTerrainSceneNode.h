@@ -1,8 +1,9 @@
 #pragma once
 #include <vector>
 #include "../Includes/ITerrainSceneNode.h"
-#include "../Includes/VertexIndexData.h"
+//#include "../Includes/VertexIndexData.h"
 #include "../Includes/ISceneManager.h"
+#include "../Includes/IImage.h"
 
 
 namespace Sam3d
@@ -21,10 +22,10 @@ public:
 	~CTerrainSceneNode();
 
 	virtual bool LoadTerrain(const char* FileName, TerrainOption mOption);
-	virtual SMaterial& getMaterial(int i)
-	{
-		return Material;
-	};
+	//virtual SMaterial& getMaterial(int i)
+	//{
+	//	return Material;
+	//};
 	
 	virtual void OnPreRender();
 	virtual void OnPostRender(int timeMs){};
@@ -49,11 +50,11 @@ protected:
 	};
 
 
-	IVertexBuffer* pBufferHardware;
+//	IVertexBuffer* pBufferHardware;
 	float* mPositionBuffer;
-	VertexData* MeshTerrain;//
+//	VertexData* MeshTerrain;//
 	std::vector<uShort> Indices;
-	SMaterial Material;
+//	SMaterial Material;
 	int TerrainSize;
 	TerrainOption Options;
 	SRenderOp Op;	

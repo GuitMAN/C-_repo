@@ -6,14 +6,14 @@ namespace Sam3d
 
 	bool CFont::Load(char* name)
 	{
-		Texture = Driver->LoadTextureFromFile(name);
-		if (!Texture)
-			return false;//Текстура шрифта не найдена
-		char* buff = (char*)Texture->lock();
-		if ((Texture->getSize().Height != 256) && (Texture->getSize().Width != 256))
-			return false;//Неправильный размер текстуры
+//		Texture = Driver->LoadTextureFromFile(name);
+	//	if (!Textrue)
+	//		return false;//Текстура шрифта не найдена
+	//	char* buff = (char*)Texture->lock();
+	//	if ((Texture->getSize().Height != 256) && (Texture->getSize().Width != 256))
+	//		return false;//Неправильный размер текстуры
 		//Создаем шрифт (определяем ширину символов)
-		for (int y = 0; y < 16; y++)
+		/*or (int y = 0; y < 16; y++)
 			for (int x = 0; x < 16; x++)
 			{
 				if ((x + 16 * y) == 32)
@@ -61,10 +61,10 @@ namespace Sam3d
 			}
 		//Конец цикла создания шрифта
 			//Устанавливаем афльфа канал в текстуре шрифта
-		for (int i = 0; i < 256 * 256; i++)
-			buff[4 * i + 3] = buff[4 * i];
+	//	for (int i = 0; i < 256 * 256; i++)
+	//		buff[4 * i + 3] = buff[4 * i];
 
-		Texture->unlock();
+	//	Texture->unlock(); */
 		return true;
 	};
 

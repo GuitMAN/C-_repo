@@ -1,4 +1,4 @@
-﻿  CSkyBox.cpp
+﻿  CFont.cpp
 D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(15,2): error C2011:  Sam3d::ECOLOR_FORMAT: переопределение типа "enum"
 D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(14): message :   см. объявление "Sam3d::ECOLOR_FORMAT"
 D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(128,20): error C2374:  Sam3d::ColorFormatNames: переопределение; множественная инициализация
@@ -60,4 +60,3 @@ D:\C++\Project2\sam3d\sam3dexec\scr\core\S3DVertex.h(42,3): error C2439:  Sam3d:
 D:\C++\Project2\sam3d\sam3dexec\scr\core\S3DVertex.h(55): message :   см. объявление "Sam3d::S3DVertex2TCoords::Color"
 D:\C++\Project2\sam3d\sam3dexec\scr\core\S3DVertex.h(48,11): error C2027:  использование неопределенного типа "Sam3d::SColor"
 D:\C++\Project2\sam3d\sam3dexec\scr\core\SColor.h(308): message :   см. объявление "Sam3d::SColor"
-D:\C++\Project2\sam3d\sam3dexec\scr\CSkyBox.cpp(11,3): error C2065:  Pos: необъявленный идентификатор
