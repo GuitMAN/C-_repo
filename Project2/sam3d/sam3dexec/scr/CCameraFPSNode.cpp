@@ -55,9 +55,9 @@ void CCameraFPSNode::OnPreRender()
 //	View.makeIdentity();
 //	View.setInverseRotationDeg(getRotation());
 //	Matrix4f mat;
-	mat.setInverseTranslation(getPosition());
+//	mat.setInverseTranslation(getPosition());
 	
-	View = View*mat;
+//	View = View*mat;
 
 	SceneManager->registerNodeForRendering(this, SNRT_LIGHT_AND_CAMERA);
 	ISceneNode::OnPreRender();

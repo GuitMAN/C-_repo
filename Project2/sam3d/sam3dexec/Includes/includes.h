@@ -41,7 +41,7 @@ namespace Sam3d
 extern "C" {     // do not use C++ decorations
 #endif
 
-//	DLL_API IWindow* DLLCALLCONV createWindow(const String& caption, Dimension2d<int> windowSize,  int bits, bool fullScreen, bool vsync);  
+	DLL_API IWindow* DLLCALLCONV createWindow(const String& caption, Dimension2d<int> windowSize,  int bits, bool fullScreen, bool vsync);  
 
 //	DLL_API ISceneManager* DLLCALLCONV  CreateSceneManager(IRender *render, ITimer* timer);
 

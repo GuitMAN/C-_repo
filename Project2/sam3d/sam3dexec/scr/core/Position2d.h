@@ -11,15 +11,15 @@ public:
 		: x(0), y(0) {};
 
 	Position2d(T width, T height)
-		: x(width), x(height) {};
+		: x(width), y(height) {};
 
 	Position2d(const Dimension2d<T>& other)
-		: x(other.Width), x(other.Height) {};
+		: x(other.Width), y(other.Height) {};
 
 
 	bool operator == (const Position2d<T>& other) const
 	{
-		return x == other.x && x == other.x;
+		return x == other.x && y == other.y;
 	}
 
 

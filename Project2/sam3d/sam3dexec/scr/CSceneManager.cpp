@@ -65,10 +65,11 @@ ITerrainSceneNode* CSceneManager::addTerrainNode(const char* heightMapFileName, 
 
 IFont*  CSceneManager::addFont(char* name, ISceneNode* parent, int id)
 {
-	IFont* node = new CFont(parent, this, id, CurRender);
+/*	IFont* node = new CFont(parent, this, id, CurRender);
 	node->Load(name);
 	addChild(node);
 	return node;
+	*/
 };
 
 

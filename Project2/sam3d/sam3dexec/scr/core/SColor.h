@@ -1,3 +1,5 @@
+#pragma once
+
 #include "UserMath.h"
 #include "../../Includes/Types.h"
 

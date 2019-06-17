@@ -1,6 +1,7 @@
 #include "CTerrainSceneNode.h"
-#include "CImageLoaderTGA.h"
+//#include "CImageLoaderTGA.h"
 #include "../Includes/IRender.h"
+#include  <fstream>
 
 namespace Sam3d
 {
@@ -16,12 +17,12 @@ namespace Sam3d
 
 	CTerrainSceneNode::~CTerrainSceneNode()
 	{
-		MeshTerrain->Release();
+	//	MeshTerrain->Release();
 		Indices.clear();
 		IRender* driver = SceneManager->getRender();
 		for (int i=0;i<8; i++)
 		{	//Удаление материалов
-			driver->removeTexture(Material.Texture[i]);
+//			driver->removeTexture(Material.Texture[i]);
 		};
 	};
 
@@ -34,12 +35,12 @@ bool CTerrainSceneNode::LoadTerrain(const char* FileName, TerrainOption mOption)
 	file.open(FileName, std::ios::in | std::ios::binary );
 	if (file.fail())	return false;
 
-	IImageLoader*  ImageLoader = createImageLoaderTGA();
-	IImage* heightMap = ImageLoader->loadImage(&file);
+//	IImageLoader*  ImageLoader = createImageLoaderTGA();
+//	IImage* heightMap = ImageLoader->loadImage(&file);
 
-	if (!heightMap)		return false;
+//	if (!heightMap)		return false;
 
-	Initialize(heightMap->getDimension().Width, heightMap->getDimension().Height, heightMap);
+//	Initialize(heightMap->getDimension().Width, heightMap->getDimension().Height, heightMap);
 	
 
 	return true;
@@ -47,7 +48,7 @@ bool CTerrainSceneNode::LoadTerrain(const char* FileName, TerrainOption mOption)
 
 void CTerrainSceneNode::Initialize(int x,int y, IImage* pHeight)
 {
-	MeshTerrain = new VertexData();
+/*	MeshTerrain = new VertexData();
 	MeshTerrain->VertexCount = x*y;
 	MeshTerrain->vertexDeclaration = getSceneManager()->getRender()->addVertexDeclaration();
 	int offset = 0;
@@ -119,7 +120,7 @@ void CTerrainSceneNode::Initialize(int x,int y, IImage* pHeight)
 	Op.pVB = pBufferHardware;
 	Op.Type = OT_TRIANGLE_STRIP;
 	Op.pDcl = MeshTerrain->vertexDeclaration;
-
+*/
 };
 
 
@@ -132,8 +133,8 @@ void CTerrainSceneNode::OnPreRender()
 void CTerrainSceneNode::Render()
 {
 	IRender* driver = SceneManager->getRender();
-	driver->setTransform(MATRIX_WORLD, &this->getTransformation());
-	driver->setMaterial(Material);
+//	driver->setTransform(MATRIX_WORLD, &this->getTransformation());
+//	driver->setMaterial(Material);
 	
 	for (int i=0; i<TerrainSize-1; ++i)
 		driver->drawBuffer(Op,i*TerrainSize,2*TerrainSize,0,(TerrainSize*2-2));

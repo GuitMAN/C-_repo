@@ -239,7 +239,7 @@ public:
 		return Scale;
 	};
 
-	virtual void setPosition(Vector3f& newpos)
+	virtual void setPosition(const Vector3f& newpos)
 	{
 		Translation = newpos;
 	};

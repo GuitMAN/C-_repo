@@ -12,7 +12,7 @@ public:
 		Render = 0;
 		SceneManager = 0;
 		Mouse = 0;
-		Keyboard = 0;
+//		Keyboard = 0;
 		mMoveScale = 0.8f;
 		mRotSpeed = 0.5f;
 		isQuite = true;
@@ -24,7 +24,7 @@ public:
 		if (!createWindow())return false;
 		Render = Window->getRender();
 		SceneManager = Window->getSceneManager();
-		Keyboard = Window->getInput();
+//		Keyboard = Window->getInput();
 		Mouse = Window->getCursor();
 		createCamera();
 		createScene();
@@ -40,14 +40,14 @@ public:
 		Camera->setScale(Vector3f(1.0f, 1, 1));
 		RotCamera.Set(0, 0, 0);
 		TranslateVector.Set(200, 100, 200);
-		Camera->setPosition(Vector3f(-120, 123, -145));
+		Camera->setPosition(Vector3f(-120.0f, 123.0f, -145.0f));
 		Mouse->setPosition(300, 300);
 		return Camera;
 	};
 	void createScene()
 	{
 		//Создание Скайбокса
-		SceneManager->addSkyBoxNode(Render->LoadTextureFromFile("SkyBox/SkyMATTER/pos_up.tga"),
+/*		SceneManager->addSkyBoxNode(Render->LoadTextureFromFile("SkyBox/SkyMATTER/pos_up.tga"),
 			Render->LoadTextureFromFile("SkyBox/SkyMATTER/neg_dn.tga"),
 			Render->LoadTextureFromFile("SkyBox/SkyMATTER/neg_lf.tga"),
 			Render->LoadTextureFromFile("SkyBox/SkyMATTER/pos_rt.tga"),
@@ -72,7 +72,7 @@ public:
 		mt.Wireframe = false;
 		mt.BackfaceCulling = true;
 		mt.FilterOptions = Sam3d::TFO_TRILINEAR;
-
+*/
 	};
 
 	void shutdown()
@@ -96,7 +96,7 @@ public:
 			if (time >= 300)
 			{
 				time = 0;
-				Window->SetCaption(toStr("3D приложение: %i  ", fps));
+//				Window->SetCaption(toStr("3D приложение: %i  ", fps));
 			}
 			else time++;
 
@@ -105,7 +105,7 @@ public:
 
 	void processInput()
 	{
-		//Проверка на выход
+/*		//Проверка на выход
 		if (Keyboard->keys.keyDown[OIS::KEY_ESCAPE]) isQuite = false;
 
 		//двигаем камеру
@@ -126,7 +126,7 @@ public:
 			TranslateVector += strafe * (+mMoveScale);
 		if (Keyboard->keys.keyDown[OIS::KEY_LEFT] | Keyboard->keys.keyDown[OIS::KEY_A])
 			TranslateVector += strafe * (-mMoveScale);
-		//--------------------------------------------
+*/		//--------------------------------------------
 	};
 
 	void processMouse()
@@ -165,7 +165,7 @@ protected:
 	IRender* Render;
 	ISceneManager* SceneManager;
 	ICursor* Mouse;
-	CInput* Keyboard;
+//	CInput* Keyboard;
 	Vector3f TranslateVector;
 	Vector3f RotCamera;
 	float mMoveScale;

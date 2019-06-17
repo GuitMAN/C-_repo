@@ -1,11 +1,12 @@
 #pragma once
 #include "../Includes/IRender.h"
+#include "../Includes/ISceneNode.h"
 #include "../scr/core/Position2d.h"
 
 namespace Sam3d
 {
 
-	class IFont
+	class IFont : public  ISceneNode
 	{
 	public:
 		virtual ~IFont() {};
