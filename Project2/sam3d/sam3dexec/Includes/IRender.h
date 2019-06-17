@@ -1,5 +1,5 @@
 #pragma once
-#include <windows.h>
+
 #include <string>
 #include "IBase.h"
 //#include "IShaders.h"

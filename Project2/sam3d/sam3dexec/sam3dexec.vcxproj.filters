@@ -33,33 +33,6 @@
     <ClCompile Include="States\App.cpp">
       <Filter>Исходные файлы\States</Filter>
     </ClCompile>
-    <ClCompile Include="scr\CCameraFPSNode.cpp">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClCompile>
-    <ClCompile Include="scr\CDirect3D9Render.cpp">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClCompile>
-    <ClCompile Include="scr\CFont.cpp">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClCompile>
-    <ClCompile Include="scr\CFPSCounter.cpp">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClCompile>
-    <ClCompile Include="scr\CImage.cpp">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClCompile>
-    <ClCompile Include="scr\CMesh.cpp">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClCompile>
-    <ClCompile Include="scr\CSceneManager.cpp">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClCompile>
-    <ClCompile Include="scr\CSkyBox.cpp">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClCompile>
-    <ClCompile Include="scr\CTerrainSceneNode.cpp">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClCompile>
     <ClCompile Include="scr\CWindow.cpp">
       <Filter>Исходные файлы\scr</Filter>
     </ClCompile>
@@ -71,30 +44,6 @@
     <ClInclude Include="Header.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="scr\CCameraFPSNode.h">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClInclude>
-    <ClInclude Include="scr\CDirect3D9Render.h">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClInclude>
-    <ClInclude Include="scr\CFont.h">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClInclude>
-    <ClInclude Include="scr\CFPSCounter.h">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClInclude>
-    <ClInclude Include="scr\CMesh.h">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClInclude>
-    <ClInclude Include="scr\CSceneManager.h">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClInclude>
-    <ClInclude Include="scr\CSkyBox.h">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClInclude>
-    <ClInclude Include="scr\CTerrainSceneNode.h">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClInclude>
     <ClInclude Include="scr\CWindow.h">
       <Filter>Исходные файлы\scr</Filter>
     </ClInclude>
@@ -104,28 +53,10 @@
     <ClInclude Include="Includes\IBase.h">
       <Filter>Файлы заголовков\Includes</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\ICameraSceneNode.h">
-      <Filter>Файлы заголовков\Includes</Filter>
-    </ClInclude>
     <ClInclude Include="Includes\ICursor.h">
       <Filter>Файлы заголовков\Includes</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\IImage.h">
-      <Filter>Файлы заголовков\Includes</Filter>
-    </ClInclude>
     <ClInclude Include="Includes\includes.h">
-      <Filter>Файлы заголовков\Includes</Filter>
-    </ClInclude>
-    <ClInclude Include="Includes\IRender.h">
-      <Filter>Файлы заголовков\Includes</Filter>
-    </ClInclude>
-    <ClInclude Include="Includes\ISceneManager.h">
-      <Filter>Файлы заголовков\Includes</Filter>
-    </ClInclude>
-    <ClInclude Include="Includes\ISceneNode.h">
-      <Filter>Файлы заголовков\Includes</Filter>
-    </ClInclude>
-    <ClInclude Include="Includes\ITerrainSceneNode.h">
       <Filter>Файлы заголовков\Includes</Filter>
     </ClInclude>
     <ClInclude Include="Includes\IWindow.h">
@@ -149,23 +80,11 @@
     <ClInclude Include="States\App.h">
       <Filter>Исходные файлы\States</Filter>
     </ClInclude>
-    <ClInclude Include="scr\CImage.h">
-      <Filter>Исходные файлы\scr</Filter>
-    </ClInclude>
     <ClInclude Include="scr\core\SColor.h">
       <Filter>Исходные файлы\scr\core</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\IFont.h">
-      <Filter>Файлы заголовков\Includes</Filter>
-    </ClInclude>
     <ClInclude Include="scr\core\Position2d.h">
       <Filter>Исходные файлы\scr\core</Filter>
-    </ClInclude>
-    <ClInclude Include="Includes\IMesh.h">
-      <Filter>Файлы заголовков\Includes</Filter>
-    </ClInclude>
-    <ClInclude Include="Includes\IMeshBuffer.h">
-      <Filter>Файлы заголовков\Includes</Filter>
     </ClInclude>
     <ClInclude Include="scr\core\Vector2f.h">
       <Filter>Исходные файлы\scr\core</Filter>

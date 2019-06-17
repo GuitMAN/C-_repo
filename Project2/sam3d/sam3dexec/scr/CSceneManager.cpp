@@ -67,9 +67,9 @@ IFont*  CSceneManager::addFont(char* name, ISceneNode* parent, int id)
 {
 /*	IFont* node = new CFont(parent, this, id, CurRender);
 	node->Load(name);
-	addChild(node);
-	return node;
-	*/
+	addChild(node);*/
+	return 0;//node;
+	
 };
 
 

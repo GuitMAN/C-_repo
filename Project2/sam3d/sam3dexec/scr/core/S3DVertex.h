@@ -1,5 +1,4 @@
 #pragma once
-#include <windows.h>
 #include "Vector3f.h"
 #include "SColor.h"
 #include "Position2d.h"

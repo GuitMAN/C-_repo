@@ -124,42 +124,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="scr\CCameraFPSNode.cpp" />
-    <ClCompile Include="scr\CDirect3D9Render.cpp" />
-    <ClCompile Include="scr\CFont.cpp" />
-    <ClCompile Include="scr\CFPSCounter.cpp" />
-    <ClCompile Include="scr\CImage.cpp" />
-    <ClCompile Include="scr\CMesh.cpp" />
     <ClCompile Include="scr\core\Usermath.cpp" />
-    <ClCompile Include="scr\CSceneManager.cpp" />
-    <ClCompile Include="scr\CSkyBox.cpp" />
-    <ClCompile Include="scr\CTerrainSceneNode.cpp" />
     <ClCompile Include="scr\CWindow.cpp" />
     <ClCompile Include="States\App.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h" />
     <ClInclude Include="Includes\IBase.h" />
-    <ClInclude Include="Includes\ICameraSceneNode.h" />
     <ClInclude Include="Includes\ICursor.h" />
-    <ClInclude Include="Includes\IFont.h" />
-    <ClInclude Include="Includes\IImage.h" />
-    <ClInclude Include="Includes\IMesh.h" />
-    <ClInclude Include="Includes\IMeshBuffer.h" />
     <ClInclude Include="Includes\includes.h" />
     <ClInclude Include="Includes\Input.h" />
-    <ClInclude Include="Includes\IRender.h" />
-    <ClInclude Include="Includes\ISceneManager.h" />
-    <ClInclude Include="Includes\ISceneNode.h" />
-    <ClInclude Include="Includes\ITerrainSceneNode.h" />
     <ClInclude Include="Includes\IWindow.h" />
     <ClInclude Include="Includes\Types.h" />
-    <ClInclude Include="scr\CCameraFPSNode.h" />
-    <ClInclude Include="scr\CDirect3D9Render.h" />
-    <ClInclude Include="scr\CFont.h" />
-    <ClInclude Include="scr\CFPSCounter.h" />
-    <ClInclude Include="scr\CImage.h" />
-    <ClInclude Include="scr\CMesh.h" />
     <ClInclude Include="scr\core\dimension2d.h" />
     <ClInclude Include="scr\core\Position2d.h" />
     <ClInclude Include="scr\core\S3DVertex.h" />
@@ -167,9 +143,6 @@
     <ClInclude Include="scr\core\UserMath.h" />
     <ClInclude Include="scr\core\Vector2f.h" />
     <ClInclude Include="scr\core\Vector3f.h" />
-    <ClInclude Include="scr\CSceneManager.h" />
-    <ClInclude Include="scr\CSkyBox.h" />
-    <ClInclude Include="scr\CTerrainSceneNode.h" />
     <ClInclude Include="scr\CWindow.h" />
     <ClInclude Include="scr\Log.h" />
     <ClInclude Include="States\App.h" />

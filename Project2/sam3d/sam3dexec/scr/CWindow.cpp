@@ -1,68 +1,71 @@
 #include "CWindow.h"
-#include "CDirect3D9Render.h"
-#include "CSceneManager.h"
-#include "CFont.h"
+#include <list>
+//#include "CDirect3D9Render.h"
+//#i//nclude "CSceneManager.h"
+//#include "CFont.h"
+//#pragma comment(lib, "winmm.lib")
+
 
 namespace Sam3d
 {
 
 
-struct SEnvMapper
-{
-	HWND hWnd;
-	CWindow* SamWin;
-};
-
-std::list<SEnvMapper> EnvMap;
-
-SEnvMapper* getEnvMapperFromHWnd(HWND hWnd)
-{
-	std::list<SEnvMapper>::iterator it = EnvMap.begin();
-	for (; it!= EnvMap.end(); ++it)
-		if ((*it).hWnd == hWnd)
-			return &(*it);
-
-	return 0;
-}
-
-CWindow* getDeviceFromHWnd(HWND hWnd)
-{
-	std::list<SEnvMapper>::iterator it = EnvMap.begin();
-	for (; it!= EnvMap.end(); ++it)
-		if ((*it).hWnd == hWnd)
-			return (*it).SamWin;
-
-	return 0;
-}
-
-
-LRESULT MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
-{
-	#ifndef WM_MOUSEWHEEL
-	#define WM_MOUSEWHEEL 0x020A
-	#endif
-	#ifndef WHEEL_DELTA                     
-	#define WHEEL_DELTA 120
-	#endif
-
-	CWindow *win = 0;
-	win = getDeviceFromHWnd(hWnd);
-
-
-	switch(msg)
+	struct SEnvMapper
 	{
+		HWND hWnd;
+		CWindow* SamWin;
+	};
+
+	std::list<SEnvMapper> EnvMap;
+
+	SEnvMapper* getEnvMapperFromHWnd(HWND hWnd)
+	{
+		std::list<SEnvMapper>::iterator it = EnvMap.begin();
+		for (; it != EnvMap.end(); ++it)
+			if ((*it).hWnd == hWnd)
+				return &(*it);
+
+		return 0;
+	}
+
+	CWindow* getDeviceFromHWnd(HWND hWnd)
+	{
+		std::list<SEnvMapper>::iterator it = EnvMap.begin();
+		for (; it != EnvMap.end(); ++it)
+			if ((*it).hWnd == hWnd)
+				return (*it).SamWin;
+
+		return 0;
+	}
+
+
+	LRESULT MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
+	{
+#ifndef WM_MOUSEWHEEL
+#define WM_MOUSEWHEEL 0x020A
+#endif
+#ifndef WHEEL_DELTA                     
+#define WHEEL_DELTA 120
+#endif
+
+		CWindow * win = 0;
+		win = getDeviceFromHWnd(hWnd);
+
+
+		switch (msg)
+		{
 		case WM_ACTIVATE:	// Activate Message
 		{
 			if (win) win->isVisible = true;
 		}
-		break; 
+		break;
 
 		case WM_SYSCOMMAND:					// Перехватываем системную команду
 		{
 			switch (wParam)						// Проверяем системные вызовы
 			{
-				case SC_SCREENSAVE:				// Хранитель экрана пытается запуститься?
-				case SC_MONITORPOWER:			// Монитор вытается уйти в спящий режим?
+			case SC_SCREENSAVE:				// Хранитель экрана пытается запуститься?
+			case SC_MONITORPOWER:			// Монитор вытается уйти в спящий режим?
 				return 0;						// Не надо этого всёго, пусть ничего не происходит
 			}
 			break;								// выход
@@ -80,33 +83,33 @@ LRESULT MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 		case WM_CREATE:
 		{
 
-			
+
 		}
 		return 0;
 
 		case WM_SIZE:													// Обнаружена смена размера окна
-		switch (wParam)												// Вычислим какая
-		{
+			switch (wParam)												// Вычислим какая
+			{
 			case SIZE_MINIMIZED:		// Окно минимизировано?
-				if (win)win->isVisible = false;	
-			return 0;
+				if (win)win->isVisible = false;
+				return 0;
 			case SIZE_MAXIMIZED:		// Окно максимизировано?
 				if (win)win->isVisible = true;
 				// Подгоняем окно - LoWord=Width, HiWord=Height
-			return 0;
+				return 0;
 			case SIZE_RESTORED:			// Окно было востановлено?
 				if (win)win->isVisible = true;
 				// Подгоняем - LoWord=Width, HiWord=Height
+				return 0;
+			}
 			return 0;
-		}
-		return 0;
 
 		case WM_KEYDOWN:
 		{
 			if ((wParam >= 0) && (wParam <= 255))
-			{ 
-//				win->Input->keys.keyDown [wParam] = true;
-//				win->Input->lastKeyDown = (OIS::KEY_CODES)wParam;
+			{
+				//				win->Input->keys.keyDown [wParam] = true;
+				//				win->Input->lastKeyDown = (OIS::KEY_CODES)wParam;
 			}
 		}
 		return 0;
@@ -114,318 +117,336 @@ LRESULT MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 		// Если введен символ
 		case WM_CHAR:
 			// Если консоль видима
+		{
+			// Если символ видимый
+			if ((wParam > 31) && (wParam != '`'))
 			{
-				// Если символ видимый
-				if ((wParam>31)&&(wParam!='`'))
-				{
 				// Добавляем в командую строчку консоли
 				////MainConsole->Current+=(char)wParam;
-				}
 			}
+		}
 		break;
 
 		case WM_LBUTTONDOWN:								// Left mouse button is pressed
 //			win->Input->Mouse.LButtonDown=TRUE;
-			win->Cursor->Position.x=LOWORD(lParam);
-			win->Cursor->Position.y=HIWORD(lParam);
-		return 0;
+			win->Cursor->Position.x = LOWORD(lParam);
+			win->Cursor->Position.y = HIWORD(lParam);
+			return 0;
 
 		case WM_RBUTTONDOWN:								// Right mouse button is pressed
 			win = getDeviceFromHWnd(hWnd);
-	//		win->Input->Mouse.RButtonDown=TRUE;
-			win->Cursor->Position.x=LOWORD(lParam);
-			win->Cursor->Position.y=HIWORD(lParam);				
-		return 0;
+			//		win->Input->Mouse.RButtonDown=TRUE;
+			win->Cursor->Position.x = LOWORD(lParam);
+			win->Cursor->Position.y = HIWORD(lParam);
+			return 0;
 
 		case WM_MBUTTONDOWN:								// Middle mouse button is pressed
 //			win->Input->Mouse.MidButtonDown=TRUE;
-			win->Cursor->Position.x=LOWORD(lParam);
-			win->Cursor->Position.y=HIWORD(lParam);
-		return 0;
+			win->Cursor->Position.x = LOWORD(lParam);
+			win->Cursor->Position.y = HIWORD(lParam);
+			return 0;
 
 		case WM_MBUTTONUP:								// Middle mouse button is pressed
 //			win->Input->Mouse.MidButtonDown=FALSE;
-			win->Cursor->Position.x=LOWORD(lParam);
-			win->Cursor->Position.y=HIWORD(lParam);
-		return 0;		
+			win->Cursor->Position.x = LOWORD(lParam);
+			win->Cursor->Position.y = HIWORD(lParam);
+			return 0;
 
 		case WM_LBUTTONUP:								// Left mouse button is pressed
 //			win->Input->Mouse.LButtonDown=FALSE;
-			win->Cursor->Position.x=LOWORD(lParam);
-			win->Cursor->Position.y=HIWORD(lParam);
-		return 0;
+			win->Cursor->Position.x = LOWORD(lParam);
+			win->Cursor->Position.y = HIWORD(lParam);
+			return 0;
 
 		case WM_RBUTTONUP:								// Right mouse button is pressed
 //			win->Input->Mouse.RButtonDown=FALSE;
-			win->Cursor->Position.x=LOWORD(lParam);
-			win->Cursor->Position.y=HIWORD(lParam);
-		return 0;
+			win->Cursor->Position.x = LOWORD(lParam);
+			win->Cursor->Position.y = HIWORD(lParam);
+			return 0;
 
 		case WM_KEYUP:
-		{	
-			if ((wParam >= 0) && (wParam <= 255)) 					
+		{
+			if ((wParam >= 0) && (wParam <= 255))
 			{
-//				win->Input->keys.keyDown [wParam] = false;	
-//				win->Input->lastKeyDown = (OIS::KEY_CODES)wParam;
-				return 0;											
+				//				win->Input->keys.keyDown [wParam] = false;	
+				//				win->Input->lastKeyDown = (OIS::KEY_CODES)wParam;
+				return 0;
 			}
 		}
-	    return 0;
+		return 0;
 
 		case WM_MOUSEMOVE:
 		{
-			win->Cursor->Position.x=LOWORD(lParam);
-			win->Cursor->Position.y=HIWORD(lParam);
+			win->Cursor->Position.x = LOWORD(lParam);
+			win->Cursor->Position.y = HIWORD(lParam);
 			win->Cursor->Moved = true;
 		}
 		return 0;
 		case WM_MOUSEWHEEL:
 		{
-//			win->Input->Mouse.Wheel= (int)wParam;
+			//			win->Input->Mouse.Wheel= (int)wParam;
 		}
 		return 0;
 
-		case WM_DESTROY: 
+		case WM_DESTROY:
 		{
 			PostQuitMessage(0);
 		}
 		return 0;
-		
+
 		case WM_CLOSE:			// Закрываем окно
-			PostMessage (hWnd, WM_QUIT, 0, 0);
-		return 0;				
+			PostMessage(hWnd, WM_QUIT, 0, 0);
+			return 0;
 
-	} 
-	return (DefWindowProc(hWnd, msg, wParam, lParam));
-};
-
-CWindow::CWindow(const String& caption, Dimension2d<int> windowSize,  int bits, bool fullScreen, bool vsync):
-isFullScreen(fullScreen),Caption(caption)
-
-{
-
-	HINSTANCE hInstance = GetModuleHandle(0);
-	WNDCLASSEX windowsclass; // Создем класс
-//	char* className = "SWindow";
-		     // Создаем дескриптор окна
-	          // Сообщение
-	// Определим класс окна WNDCLASSEX
-	windowsclass.cbSize         = sizeof(WNDCLASSEX);
-	windowsclass.style			= CS_HREDRAW | CS_VREDRAW;
-	windowsclass.lpfnWndProc	= (WNDPROC)MsgProc;
-	windowsclass.cbClsExtra		= 0;
-	windowsclass.cbWndExtra		= 0;
-	windowsclass.hInstance		= hInstance;
-	windowsclass.hIcon			= NULL;
-	windowsclass.hCursor		= LoadCursor(NULL, IDC_ARROW);
-	windowsclass.hbrBackground	= (HBRUSH)GetStockObject(GRAY_BRUSH);
-	windowsclass.lpszMenuName	= NULL;
-	windowsclass.lpszClassName = "";//className;
-	windowsclass.hIconSm        = LoadIcon(NULL, IDI_APPLICATION);
-
-	// Зарегестрируем класс
-	if (!RegisterClassEx(&windowsclass)){};
-//	return;
-
-//	UnregisterClass(windowsclass.lpszClassName,windowsclass.hInstance);
-	// Теперь когда класс зарегестрирован можно создать окно
-
-	RECT clientSize;
-	clientSize.top = 0;
-	clientSize.left = 0;
-	clientSize.right = windowSize.Width;
-	clientSize.bottom = windowSize.Height;
-	if (!fullScreen) 
-		clientSize.bottom += 27;
-
-	DWORD style = WS_POPUP;
-
-	if (!isFullScreen) 
-	{
-		style = WS_SYSMENU | WS_BORDER | WS_CAPTION | WS_CLIPCHILDREN | WS_CLIPSIBLINGS;
-	}
-	AdjustWindowRect(&clientSize, style, FALSE);
-	
-	if (!(hWnd = CreateWindowEx(NULL,				// стиль окна
-                            "",///className,	// класс
-							Caption.c_str(),    // название окна
-						    style, //WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-					 	    0,0,				// левый верхний угол
-						    windowSize.Width,windowSize.Height,				// ширина и высота
-						    NULL,					// дескриптор родительского окна 
-						    NULL,					// дескриптор меню
-						    hInstance, // дескриптор экземпляра проложенния
-						    NULL)))					// указатель на данные созданного окна
-	return;
-       
-	ShowWindow( hWnd, SW_SHOWDEFAULT );    //Нарисуем окно    
-    UpdateWindow( hWnd );                  //Обновим окно
-	ShowCursor(false);
-	isVisible = true;
-	if (isFullScreen) switchToFullScreen(windowSize.Width, windowSize.Height, bits);
-
-	Render = new CDirect3D9Render(hWnd, windowSize, fullScreen, vsync);
-	if (!Render->Init()) 
-	{
-		MessageBox (HWND_DESKTOP, "Не установлен DirectX9", "Error", MB_OK | MB_ICONEXCLAMATION);
-		Render->Release();
-		return;
+		}
+		return (DefWindowProc(hWnd, msg, wParam, lParam));
 	};
 
-//	Input = new CInput();
-	Cursor = new CCursor(hWnd, isFullScreen);
-//	Timer = new CTimer();
+	CWindow::CWindow(const String& caption, Dimension2d<int> windowSize, int bits, bool fullScreen, bool vsync) :
+		isFullScreen(fullScreen), Caption(caption)
 
-//	SceneManager = CreateSceneManager(Render,Timer);
-
-	SEnvMapper em;
-	em.SamWin = this;
-	em.hWnd = hWnd;
-	EnvMap.push_back(em);
-	
-	SetActiveWindow(hWnd);
-	SetForegroundWindow(hWnd);
-
-};
-
-CWindow::~CWindow(void)
-{
-	std::list<SEnvMapper>::iterator it = EnvMap.begin();
-	for (; it!= EnvMap.end(); ++it)
 	{
-		if ((*it).hWnd == hWnd)
+
+		HINSTANCE hInstance = GetModuleHandle(0);
+		WNDCLASSEX windowsclass; // Создем класс
+		const char* className = "SWindow";
+		// Создаем дескриптор окна
+		 // Сообщение
+// Определим класс окна WNDCLASSEX
+		windowsclass.cbSize = sizeof(WNDCLASSEX);
+		windowsclass.style = CS_HREDRAW | CS_VREDRAW;
+		windowsclass.lpfnWndProc = (WNDPROC)MsgProc;
+		windowsclass.cbClsExtra = 0;
+		windowsclass.cbWndExtra = 0;
+		windowsclass.hInstance = hInstance;
+		windowsclass.hIcon = NULL;
+		windowsclass.hCursor = LoadCursor(NULL, IDC_ARROW);
+		windowsclass.hbrBackground = (HBRUSH)GetStockObject(GRAY_BRUSH);
+		windowsclass.lpszMenuName = NULL;
+		windowsclass.lpszClassName = "";//className;
+		windowsclass.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
+
+		// Зарегестрируем класс
+		if (!RegisterClassEx(&windowsclass)) {};
+		//	return;
+
+		//	UnregisterClass(windowsclass.lpszClassName,windowsclass.hInstance);
+			// Теперь когда класс зарегестрирован можно создать окно
+
+		RECT clientSize;
+		clientSize.top = 0;
+		clientSize.left = 0;
+		clientSize.right = windowSize.Width;
+		clientSize.bottom = windowSize.Height;
+		if (!fullScreen)
+			clientSize.bottom += 27;
+
+		DWORD style = WS_POPUP;
+
+		if (!isFullScreen)
 		{
-			EnvMap.erase(it);
-			break;
+			style = WS_SYSMENU | WS_BORDER | WS_CAPTION | WS_CLIPCHILDREN | WS_CLIPSIBLINGS;
 		}
-	}
-	DestroyWindow(hWnd); 
+		AdjustWindowRect(&clientSize, style, FALSE);
 
-	if (SceneManager) SceneManager->Release();
-//	if (Input) delete Input;
-//	if (Timer) Timer->Release();
-	if (ChangedToFullScreen)
-	if (Render) Render->Release();
-	if (Cursor) delete Cursor;
+		if (!(hWnd = CreateWindowEx(NULL,				// стиль окна
+			className,	// класс
+			Caption.c_str(),    // название окна
+			style, //WS_OVERLAPPEDWINDOW | WS_VISIBLE,
+			0, 0,				// левый верхний угол
+			windowSize.Width, windowSize.Height,				// ширина и высота
+			NULL,					// дескриптор родительского окна 
+			NULL,					// дескриптор меню
+			hInstance, // дескриптор экземпляра проложенния
+			NULL)))					// указатель на данные созданного окна
+			return;
 
-	ChangeDisplaySettings(NULL,0);
+		ShowWindow(hWnd, SW_SHOWDEFAULT);    //Нарисуем окно    
+		UpdateWindow(hWnd);                  //Обновим окно
+		ShowCursor(false);
+		isVisible = true;
+		if (isFullScreen) switchToFullScreen(windowSize.Width, windowSize.Height, bits);
 
-};
+/*		Render = new CDirect3D9Render(hWnd, windowSize, fullScreen, vsync);
+		if (!Render->Init())
+		{
+			MessageBox(HWND_DESKTOP, "Не установлен DirectX9", "Error", MB_OK | MB_ICONEXCLAMATION);
+			Render->Release();
+			return;
+		};
+*/
+		//	Input = new CInput();
+		Cursor = new CCursor(hWnd, isFullScreen);
+		//	Timer = new CTimer();
 
-bool CWindow::switchToFullScreen(int width, int height, int bits)
-{
-	DEVMODE dm;
-	memset(&dm, 0, sizeof(dm));
-	dm.dmSize = sizeof(dm);
-	dm.dmPelsWidth = width;
-	dm.dmPelsHeight	= height;
-	dm.dmDisplayFrequency = 85;
-	dm.dmBitsPerPel	= 32;
-	dm.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
+		//	SceneManager = CreateSceneManager(Render,Timer);
 
-	LONG ret = ChangeDisplaySettings(&dm, CDS_FULLSCREEN);
-	
-	switch(ret)
+		SEnvMapper em;
+		em.SamWin = this;
+		em.hWnd = hWnd;
+		EnvMap.push_back(em);
+
+		SetActiveWindow(hWnd);
+		SetForegroundWindow(hWnd);
+
+	};
+
+	CWindow::~CWindow(void)
 	{
-	case DISP_CHANGE_SUCCESSFUL:
-		ChangedToFullScreen = true;
-		return true;
-	case DISP_CHANGE_RESTART:
-		return false;
-	case DISP_CHANGE_BADFLAGS:
-		return false;
-	case DISP_CHANGE_BADPARAM:
-		return false;
-	case DISP_CHANGE_FAILED:
-		return false;
-	case DISP_CHANGE_BADMODE:
-		return false;
-	}
+		std::list<SEnvMapper>::iterator it = EnvMap.begin();
+		for (; it != EnvMap.end(); ++it)
+		{
+			if ((*it).hWnd == hWnd)
+			{
+				EnvMap.erase(it);
+				break;
+			}
+		}
+		DestroyWindow(hWnd);
 
-	return false;
-};
+		//	if (SceneManager) SceneManager->Release();
+		//	if (Input) delete Input;
+		//	if (Timer) Timer->Release();
+		if (ChangedToFullScreen) {};
+//			if (Render) Render->Release();
+		if (Cursor) delete Cursor;
 
-bool CWindow::getWinVisible()
-{
-	return isVisible;
-};
+		ChangeDisplaySettings(NULL, 0);
 
-void CWindow::setWinVisible(bool set)
-{
-	isVisible = set;
-};
-void CWindow::SetCaption(char *str)
-{
-	SetWindowText(hWnd, str);
-};
+	};
 
-bool CWindow::Run()
-{
-	MSG msg;
-    bool quit = false;
-	while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+	bool CWindow::switchToFullScreen(int width, int height, int bits)
 	{
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
+		DEVMODE dm;
+		memset(&dm, 0, sizeof(dm));
+		dm.dmSize = sizeof(dm);
+		dm.dmPelsWidth = width;
+		dm.dmPelsHeight = height;
+		dm.dmDisplayFrequency = 85;
+		dm.dmBitsPerPel = 32;
+		dm.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
 
-		if (msg.message == WM_QUIT)
-		quit = true;
+		LONG ret = ChangeDisplaySettings(&dm, CDS_FULLSCREEN);
+
+		switch (ret)
+		{
+		case DISP_CHANGE_SUCCESSFUL:
+			ChangedToFullScreen = true;
+			return true;
+		case DISP_CHANGE_RESTART:
+			return false;
+		case DISP_CHANGE_BADFLAGS:
+			return false;
+		case DISP_CHANGE_BADPARAM:
+			return false;
+		case DISP_CHANGE_FAILED:
+			return false;
+		case DISP_CHANGE_BADMODE:
+			return false;
+		}
+
+		return false;
+	};
+
+	bool CWindow::getWinVisible()
+	{
+		return isVisible;
+	};
+
+	void CWindow::setWinVisible(bool set)
+	{
+		isVisible = set;
+	};
+	void CWindow::SetCaption(char* str)
+	{
+		SetWindowText(hWnd, str);
+	};
+
+	bool CWindow::Run()
+	{
+		MSG msg;
+		bool quit = false;
+		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+
+			if (msg.message == WM_QUIT)
+				quit = true;
+		}
+		//	if (!quit)
+		//		resizeIfNecessary();
+
+		//	Render->registerFrame(Timer->getTime());
+
+		return !quit;
+	};
+
+	//IRender* CWindow::getRender()
+	//{
+	//	return Render; 
+	//}
+
+	ICursor* CWindow::getCursor()
+	{
+		return Cursor;
 	}
-//	if (!quit)
-//		resizeIfNecessary();
 
-//	Render->registerFrame(Timer->getTime());
+	//ITimer* CWindow::getTimer()
+	//{
+	//	return Timer;
+	//}
 
-	return !quit;
-};
+	//ISceneManager* CWindow::getSceneManager()
+	//{
+	//	return SceneManager;
+	//};
 
-IRender* CWindow::getRender()
-{
-	return Render; 
-}
+	Dimension2d<int> CWindow::getWindowSize()
+	{
+		return WindowSize;
+	};
 
-ICursor* CWindow::getCursor()
-{
-	return Cursor;
-}
 
-//ITimer* CWindow::getTimer()
-//{
-//	return Timer;
-//}
 
-ISceneManager* CWindow::getSceneManager()
-{
-	return SceneManager;
-};
+	IWindow* createWindow(const String& caption, Dimension2d<int> windowSize, int bits, bool fullScreen, bool vsync)
+	{
+		CWindow* Win;
+		Win = new CWindow(caption, windowSize, bits, fullScreen, vsync);
 
-Dimension2d<int> CWindow::getWindowSize()
-{
-	return WindowSize;
-};
+		//			if (Win && !Win->getRender())
+		{
+			Win->Release();
+			Win = 0;
+		}
+		return Win;
+	};
+
+
+
+
+/*
+#ifdef __cplusplus
+	extern "C" {     // do not use C++ decorations
+#endif
+
+		DLL_API IWindow* DLLCALLCONV createWindow(const String& caption, Dimension2d<int> windowSize, int bits, bool fullScreen, bool vsync)
+		{
+			CWindow* Win;
+			Win = new CWindow(caption, windowSize, bits, fullScreen, vsync);
+
+//			if (Win && !Win->getRender())
+			{
+				Win->Release();
+				Win = 0;
+			}
+			return Win;
+		};
+
 
 
 #ifdef __cplusplus
-extern "C" {     // do not use C++ decorations
+	} // close extern C
 #endif
-
-DLL_API IWindow* DLLCALLCONV createWindow(const String& caption, Dimension2d<int> windowSize,  int bits, bool fullScreen, bool vsync)
-{
-	CWindow *Win;
-	Win = new CWindow(caption, windowSize, bits, fullScreen, vsync);
-
-	if(Win && !Win->getRender())	
-	{
-		Win->Release();
-		Win = 0;
-	}
-	return Win;
-};  
-
-
-
-#ifdef __cplusplus
-} // close extern C
-#endif
-
+*/
 };
