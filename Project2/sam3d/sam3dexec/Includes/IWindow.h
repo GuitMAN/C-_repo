@@ -15,7 +15,7 @@ namespace Sam3d
 	class IWindow : public IBase
 	{
 	public:
-		virtual ~IWindow() {};
+		virtual ~IWindow() = 0;
 		//Для цикла окна
 		virtual bool Run() = 0;
 		//Переключение полноэкранный/оконный режимов

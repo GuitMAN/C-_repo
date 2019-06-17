@@ -16,7 +16,7 @@ namespace Sam3d
 	{
 	public:
 		CWindow(const String& caption, Dimension2d<int> windowSize, int bits, bool fullScreen, bool vsync);
-		virtual ~CWindow(void);
+		virtual ~CWindow();
 
 		//Для цикла окна
 		virtual bool Run();
@@ -61,7 +61,7 @@ namespace Sam3d
 			HWND hWnd;
 			int BorderX, BorderY;
 		};
-		CCursor* Cursor;
+		CCursor* Cursor = 0;
 		//	CInput	*Input;
 
 		int				bitsPerPixel = 0;	// Бит на пиксель

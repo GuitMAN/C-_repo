@@ -14,7 +14,7 @@ public:
 		AddRef();
 	}
 
-	virtual ~IBase(void){};
+	virtual ~IBase()=0;
 
 	bool Release()
 	{
