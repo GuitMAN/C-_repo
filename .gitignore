@@ -43,5 +43,7 @@
 /Project2/sam3d/.vs
 .vs
 ./vs
-.vs
 
+
+*x64
+*Debug
