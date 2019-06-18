@@ -36,6 +36,9 @@
     <ClCompile Include="scr\CWindow.cpp">
       <Filter>Исходные файлы\scr</Filter>
     </ClCompile>
+    <ClCompile Include="scr\core\Usermath.cpp">
+      <Filter>Исходные файлы\scr\core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
@@ -82,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="Includes\Input.h">
       <Filter>Файлы заголовков\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\core\UserMath.h">
+      <Filter>Исходные файлы\scr\core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

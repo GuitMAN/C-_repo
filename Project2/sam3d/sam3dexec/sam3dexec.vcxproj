@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="scr\core\Usermath.cpp" />
     <ClCompile Include="scr\CWindow.cpp" />
     <ClCompile Include="States\App.cpp" />
   </ItemGroup>
@@ -139,6 +140,7 @@
     <ClInclude Include="scr\core\Position2d.h" />
     <ClInclude Include="scr\core\S3DVertex.h" />
     <ClInclude Include="scr\core\SColor.h" />
+    <ClInclude Include="scr\core\UserMath.h" />
     <ClInclude Include="scr\core\Vector2f.h" />
     <ClInclude Include="scr\core\Vector3f.h" />
     <ClInclude Include="scr\CWindow.h" />

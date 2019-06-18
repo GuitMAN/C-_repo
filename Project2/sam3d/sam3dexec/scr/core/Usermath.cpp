@@ -10,10 +10,25 @@ namespace Sam3d
 	static float _1_47 = 1.47f;
 	static float _2 = 2.f;
 
+
+
+
+
+
+
+
 	float __inline ulrsqrt(float x)
 	{
-		DWORD y;
+
+		
 		float r;
+
+#ifdef _WIN64
+		
+		r = sqrtf(x);
+
+#else
+		DWORD y;
 		_asm
 		{
 			mov     eax, 07F000000h + 03F800000h // (ONE_AS_INTEGER<<1) + ONE_AS_INTEGER
@@ -40,6 +55,8 @@ namespace Sam3d
 		r = *(float*)& y;
 		// optional
 		r = (3.0f - x * (r * r)) * r * 0.5f; // remove for low accuracy
+		
+#endif
 		return r;
 	}
 
@@ -96,9 +113,20 @@ namespace Sam3d
 
 	DWORD __inline HI_LOW(WORD& HI, WORD& LOW)
 	{
+#ifdef _WIN64
+
 		DWORD t1, t2;
 		t1 = HI;
 		t2 = LOW;
+		t1 << 16;
+		t1  =+ t2;
+
+#else
+		DWORD t1, t2;
+		t1 = HI;
+		t2 = LOW;
+
+
 		_asm
 		{
 			mov eax, t1
@@ -106,6 +134,8 @@ namespace Sam3d
 			add eax, t2
 			mov t1, eax
 		}
+
+#endif
 		return t1;
 	};
 
