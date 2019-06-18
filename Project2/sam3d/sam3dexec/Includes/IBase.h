@@ -15,7 +15,10 @@ public:
 	}
 
 	~IBase() {
-		this->Release();
+		if (ReferenceCounter)
+		{
+			Release();
+		}
 	};
 
 	bool Release()

@@ -1,7 +1,7 @@
 #include "CWindow.h"
 #include <list>
-//#include "CDirect3D9Render.h"
-//#i//nclude "CSceneManager.h"
+#include "COpenGLRender.h"
+//#include "CSceneManager.h"
 //#include "CFont.h"
 
 
@@ -275,14 +275,14 @@ namespace Sam3d
 		isVisible = true;
 		if (isFullScreen) switchToFullScreen(windowSize.Width, windowSize.Height, bits);
 
-/*		Render = new CDirect3D9Render(hWnd, windowSize, fullScreen, vsync);
+		Render = new COpenGLRender(hWnd, windowSize, fullScreen, vsync);
 		if (!Render->Init())
 		{
 			MessageBox(HWND_DESKTOP, "Не установлен DirectX9", "Error", MB_OK | MB_ICONEXCLAMATION);
 			Render->Release();
 			return;
 		};
-*/
+
 		//	Input = new CInput();
 		Cursor = new CCursor(hWnd, isFullScreen);
 		//	Timer = new CTimer();
@@ -299,8 +299,9 @@ namespace Sam3d
 
 	};
 
-	CWindow::~CWindow(void)
+	CWindow::~CWindow()
 	{
+		
 		std::list<SEnvMapper>::iterator it = EnvMap.begin();
 		for (; it != EnvMap.end(); ++it)
 		{
@@ -320,7 +321,7 @@ namespace Sam3d
 		if (Cursor) delete Cursor;
 
 		ChangeDisplaySettings(NULL, 0);
-
+		
 	};
 
 	bool CWindow::switchToFullScreen(int width, int height, int bits)

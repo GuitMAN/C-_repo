@@ -124,7 +124,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="scr\CDirect3D9Render.cpp" />
     <ClCompile Include="scr\core\Usermath.cpp" />
+    <ClCompile Include="scr\COpenGLRender.cpp" />
     <ClCompile Include="scr\CWindow.cpp" />
     <ClCompile Include="States\App.cpp" />
   </ItemGroup>
@@ -134,8 +136,11 @@
     <ClInclude Include="Includes\ICursor.h" />
     <ClInclude Include="Includes\includes.h" />
     <ClInclude Include="Includes\Input.h" />
+    <ClInclude Include="Includes\IRender.h" />
     <ClInclude Include="Includes\IWindow.h" />
     <ClInclude Include="Includes\Types.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="scr\CDirect3D9Render.h" />
     <ClInclude Include="scr\core\dimension2d.h" />
     <ClInclude Include="scr\core\Position2d.h" />
     <ClInclude Include="scr\core\S3DVertex.h" />
@@ -143,8 +148,12 @@
     <ClInclude Include="scr\core\UserMath.h" />
     <ClInclude Include="scr\core\Vector2f.h" />
     <ClInclude Include="scr\core\Vector3f.h" />
+    <ClInclude Include="scr\COpenGLRender.h" />
     <ClInclude Include="scr\CWindow.h" />
     <ClInclude Include="States\App.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="sam3dexec.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

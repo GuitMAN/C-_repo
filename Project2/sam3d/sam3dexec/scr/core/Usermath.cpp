@@ -88,10 +88,10 @@ namespace Sam3d
 	}
 	__inline const int roundf(const float& x)
 	{
-		
+		int n;
 
 #ifdef _WIN64
-		int n = round(x);
+		n = round(x);
 
 #else
 		_asm

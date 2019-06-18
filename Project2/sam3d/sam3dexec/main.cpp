@@ -5,7 +5,7 @@ using namespace Sam3d;
 
 #include <Windows.h>
 
-int  main()
+int  main(void)
 {
 	ExampleApp Root;
 

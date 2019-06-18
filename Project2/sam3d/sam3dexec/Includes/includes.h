@@ -12,7 +12,7 @@
 //#include "Input.h"
 //#include "ITexture.h"
 #include "Types.h"
-//#include "IRender.h"
+#include "IRender.h"
 //#include "ISceneManager.h"
 //#include "ISceneNode.h"
 //#include "IMesh.h"

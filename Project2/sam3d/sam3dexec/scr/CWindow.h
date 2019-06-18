@@ -2,6 +2,7 @@
 #include <windows.h>
 #include "../Includes/IWindow.h"         // Подключаем заголовочный файл Windows
 #include "../Includes/input.h"
+#include "../Includes/IRender.h"
 //#include "CTimer.h"
 
 //#include <list>
@@ -16,7 +17,7 @@ namespace Sam3d
 	{
 	public:
 		CWindow(const String& caption, Dimension2d<int> windowSize, int bits, bool fullScreen, bool vsync);
-		virtual ~CWindow(void);
+	    ~CWindow(void);
 
 		//Для цикла окна
 		virtual bool Run();
@@ -71,7 +72,7 @@ namespace Sam3d
 		bool			isVisible = false;		// Окно видимо?
 	private:
 
-		//	IRender	*Render;
+		IRender	*Render;
 		//	ISceneManager* SceneManager;
 		String	Caption;
 		//	ITimer	*Timer;
