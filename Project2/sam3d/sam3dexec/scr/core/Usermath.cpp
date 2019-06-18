@@ -64,6 +64,15 @@ namespace Sam3d
 
 	void __inline MyFtoL(int* i, float& f)
 	{
+
+#ifdef _WIN64
+
+		int a = (int)f;
+
+		i = &a;
+
+#else
+
 		_asm
 		{
 			fld f;
@@ -71,26 +80,41 @@ namespace Sam3d
 			fistp[edx];
 
 		}
-	}
+	
 
+#endif
+	
+	}
 	__inline const int roundf(const float& x)
 	{
-		int n;
+		
+
+#ifdef _WIN64
+		int n = round(x);
+
+#else
 		_asm
 		{
 			fld     x;
 			fistp   n;
 		}
+#endif
 		return n;
 	}
 
 	//Арктангенс
 	float __inline ArcTan(float& a)
 	{
+
+#ifdef _WIN64
+
+		
+#else
 		__asm fld1
 		__asm fld a
 		__asm fpatan
 		__asm fstp a;
+#endif
 		return a;
 	}
 
@@ -98,6 +122,11 @@ namespace Sam3d
 	//Аркосинус 
 	float __inline ArcCos(float& a)
 	{
+#ifdef _WIN64
+
+
+
+#else
 		__asm fld1
 		__asm fsub a
 		__asm fsqrt
@@ -108,6 +137,7 @@ namespace Sam3d
 		__asm fld  _2
 		__asm fmul
 		__asm fstp a;
+#endif
 		return a;
 	}
 
