@@ -1,21 +1,18 @@
-//#include "Header.h"
+#include "Header.h"
 
-//using namespace Sam3d;
+using namespace Sam3d;
 
 
 #include <Windows.h>
 
-int WINAPI WinMain(HINSTANCE hinstance,
-	HINSTANCE hprevinstance,
-	LPSTR lpcmdline,
-	int ncmdshow)
+int  main()
 {
-//	ExampleApp Root;
+	ExampleApp Root;
 
-//	if (Root.setup()) 
-//	{
-//		Root.Run();
-//	};
-//	Root.shutdown();
-
+	if (Root.setup()) 
+	{
+		Root.Run();
+	};
+	Root.shutdown();
+	return 0;
 };

@@ -299,7 +299,7 @@ namespace Sam3d
 
 	};
 
-	CWindow::~CWindow()
+	CWindow::~CWindow(void)
 	{
 		std::list<SEnvMapper>::iterator it = EnvMap.begin();
 		for (; it != EnvMap.end(); ++it)

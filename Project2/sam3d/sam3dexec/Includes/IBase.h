@@ -14,7 +14,9 @@ public:
 		AddRef();
 	}
 
-	virtual ~IBase()=0;
+	~IBase() {
+		this->Release();
+	};
 
 	bool Release()
 	{

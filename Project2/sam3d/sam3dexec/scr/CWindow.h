@@ -16,7 +16,7 @@ namespace Sam3d
 	{
 	public:
 		CWindow(const String& caption, Dimension2d<int> windowSize, int bits, bool fullScreen, bool vsync);
-		virtual ~CWindow();
+		virtual ~CWindow(void);
 
 		//Для цикла окна
 		virtual bool Run();
