@@ -1,4 +1,5 @@
 #include "usermath.h"
+#include <math.h>
 
 ////////////////////////////////////////////////////////////
 //USERMATH - ѕроча€ математика дл€ быстрых вычислений
@@ -108,6 +109,7 @@ namespace Sam3d
 
 #ifdef _WIN64
 
+		a = atanf(a);
 		
 #else
 		__asm fld1
@@ -124,7 +126,7 @@ namespace Sam3d
 	{
 #ifdef _WIN64
 
-
+		a = acosf(a);
 
 #else
 		__asm fld1
