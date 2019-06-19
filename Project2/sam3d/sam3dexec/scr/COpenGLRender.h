@@ -1,5 +1,18 @@
 #pragma once
-//#include <gl/GL.h>
+#include <windows.h>
+#include <GL/GL.h>
+#include    <GL/glu.h>
+
+#include "../scr/glext/glext.h"
+//#include "../scr/glext/glxext.h"
+
+#ifdef  _WIN32
+#include "../scr/glext/wglext.h"
+#else
+#include    <GL/glx.h>
+#include    <GL/glxext.h>
+#endif
+
 #include "../Includes/IRender.h"
 //#include "core/S3DVertex.h"
 

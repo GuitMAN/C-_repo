@@ -151,7 +151,7 @@ namespace Sam3d
 		t1 = HI;
 		t2 = LOW;
 		t1 << 16;
-		t1  =+ t2;
+		t1  += t2;
 
 #else
 		DWORD t1, t2;
