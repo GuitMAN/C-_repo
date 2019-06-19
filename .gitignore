@@ -36,8 +36,14 @@
 /Project2/sam3d/Debug
 /Project2/sam3d/sam3dexec/Debug/sam3dexec.tlog
 /Project2/sam3d/sam3dexec/x64/Debug
-./vs
+
+/Project2/sam3d/sam3dexec/Debug
+/Project2/sam3d/sam3dexec/x64
+/Project2/sam3d/.vs
+/Project2/sam3d/.vs
 .vs
+./vs
+*x64
 /Qt/build-Proj1-Desktop_Qt_5_12_3_MSVC2017_32bit-Debug/debug
 /Qt/build-Proj1-Desktop_Qt_5_12_3_MSVC2017_32bit-Debug/release
 /Qt/build-Proj1-Desktop_Qt_5_12_3_MinGW_32_bit-Release/debug
