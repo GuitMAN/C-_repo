@@ -1,13 +1,17 @@
 #include "Header.h"
 
+
+
 using namespace Sam3d;
 
 
-#include <Windows.h>
 
-int  main(void)
+
+int main()
 {
 	ExampleApp Root;
+
+	
 
 	if (Root.setup()) 
 	{

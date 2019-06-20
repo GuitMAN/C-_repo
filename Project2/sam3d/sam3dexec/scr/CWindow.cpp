@@ -78,7 +78,7 @@ namespace Sam3d
 			}
 			break;								// выход
 		}
-		return 0;								// выходим из функции
+		break;								// выходим из функции
 
 		case WM_PAINT:
 		{
@@ -86,15 +86,15 @@ namespace Sam3d
 			HDC hdc = BeginPaint(hWnd, &ps);
 			EndPaint(hWnd, &ps);
 		}
-		return 0;
+		break;
 
 		case WM_CREATE:
 		{
-			
+
 
 
 		}
-		return 0;
+		break;
 
 		case WM_SIZE:													// Обнаружена смена размера окна
 			switch (wParam)												// Вычислим какая
@@ -111,7 +111,7 @@ namespace Sam3d
 				// Подгоняем - LoWord=Width, HiWord=Height
 				return 0;
 			}
-			return 0;
+			break;
 
 		case WM_KEYDOWN:
 		{
@@ -121,7 +121,7 @@ namespace Sam3d
 				//				win->Input->lastKeyDown = (OIS::KEY_CODES)wParam;
 			}
 		}
-		return 0;
+		break;
 
 		// Если введен символ
 		case WM_CHAR:
@@ -139,62 +139,64 @@ namespace Sam3d
 		case WM_LBUTTONDOWN:								// Left mouse button is pressed
 //			win->Input->Mouse.LButtonDown=TRUE;
 			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
-			return 0;
+			break;
 
 		case WM_RBUTTONDOWN:								// Right mouse button is pressed
 			win = getDeviceFromHWnd(hWnd);
 			//		win->Input->Mouse.RButtonDown=TRUE;
 			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
-			return 0;
+			break;
 
 		case WM_MBUTTONDOWN:								// Middle mouse button is pressed
 //			win->Input->Mouse.MidButtonDown=TRUE;
 			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
-			return 0;
+			break;
 
 		case WM_MBUTTONUP:								// Middle mouse button is pressed
 //			win->Input->Mouse.MidButtonDown=FALSE;
 			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
-			return 0;
+			break;
 
 		case WM_LBUTTONUP:								// Left mouse button is pressed
-//			win->Input->Mouse.LButtonDown=FALSE;
+		{
+			//			win->Input->Mouse.LButtonDown=FALSE;
 			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
-			return 0;
-
+			break;
+		}
 		case WM_RBUTTONUP:								// Right mouse button is pressed
-//			win->Input->Mouse.RButtonDown=FALSE;
+		{
+			//			win->Input->Mouse.RButtonDown=FALSE;
 			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
-			return 0;
-
+			break;
+		}
 		case WM_KEYUP:
 		{
 			if ((wParam >= 0) && (wParam <= 255))
 			{
 				//				win->Input->keys.keyDown [wParam] = false;	
 				//				win->Input->lastKeyDown = (OIS::KEY_CODES)wParam;
-				return 0;
-			}
-		}
-		return 0;
 
+			}
+
+			break;
+		}
 		case WM_MOUSEMOVE:
 		{
 			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
-			win->Cursor->setMoved(1) ;
+			win->Cursor->setMoved(1);
 		}
-		return 0;
+		break;
 		case WM_MOUSEWHEEL:
 		{
 			//			win->Input->Mouse.Wheel= (int)wParam;
 		}
-		return 0;
+		break;
 
 		case WM_DESTROY:
 		{
-			
+
 		}
-		return 0;
+		break;
 
 		case WM_CLOSE:			// Закрываем окно
 		{
@@ -221,12 +223,12 @@ namespace Sam3d
 
 			PostQuitMessage(0);
 			PostMessage(hWnd, WM_QUIT, 0, 0);
-			
-			return 0;
+
+			break;
 		}
 		}
 		return (DefWindowProc(hWnd, msg, wParam, lParam));
-	};
+	}
 
 	CWindow::CWindow(const String& caption, Dimension2d<int> windowSize, int bits, bool fullScreen, bool vsync) :
 		isFullScreen(fullScreen), Caption(caption)
@@ -254,14 +256,14 @@ namespace Sam3d
 
 		// Зарегестрируем класс
 		if (!RegisterClassEx(&windowsclass)) {
-			
+
 			return;
 		}
-			//	UnregisterClass(windowsclass.lpszClassName,windowsclass.hInstance);
-				// Теперь когда класс зарегестрирован можно создать окно
-		
-		
-		
+		//	UnregisterClass(windowsclass.lpszClassName,windowsclass.hInstance);
+			// Теперь когда класс зарегестрирован можно создать окно
+
+
+
 		RECT clientSize;
 		clientSize.top = 0;
 		clientSize.left = 0;
@@ -289,11 +291,8 @@ namespace Sam3d
 			hInstance, // дескриптор экземпляра проложенния
 			NULL)))					// указатель на данные созданного окна
 			return;
-		
 
-		Cursor = new CCursor(hWnd, isFullScreen);
 
-	
 
 		ShowWindow(hWnd, SW_SHOWDEFAULT);    //Нарисуем окно    
 		UpdateWindow(hWnd);                  //Обновим окно
@@ -301,6 +300,11 @@ namespace Sam3d
 		isVisible = true;
 		if (isFullScreen) switchToFullScreen(windowSize.Width, windowSize.Height, bits);
 
+		Cursor = new CCursor(hWnd, isFullScreen);
+		SEnvMapper em;
+		em.SamWin = this;
+		em.hWnd = hWnd;
+		EnvMap.push_back(em);
 		Render = new COpenGLRender(hWnd, windowSize, fullScreen, vsync);
 		if (!Render->Init())
 		{
@@ -310,27 +314,26 @@ namespace Sam3d
 		};
 
 		//	Input = new CInput();
-		
+
 		//	Timer = new CTimer();
 
 		//	SceneManager = CreateSceneManager(Render,Timer);
 
-		SEnvMapper em;
-		em.SamWin = this;
-		em.hWnd = hWnd;
-		EnvMap.push_back(em);
-
-
 		SetActiveWindow(hWnd);
 		SetForegroundWindow(hWnd);
 
+
+		if (MessageBox(NULL, (LPCSTR)"Хотите ли Вы запустить приложение в полноэкранном режиме?",
+			(LPCSTR)"Запустить в полноэкранном режиме?",
+			MB_YESNO | MB_ICONQUESTION) == IDNO)
+			isFullScreen = false;          // Оконный режим
 	};
 
 	CWindow::~CWindow()
 	{
-		
-		
-		
+
+
+
 	};
 
 	bool CWindow::switchToFullScreen(int width, int height, int bits)
@@ -402,7 +405,7 @@ namespace Sam3d
 
 	IRender* CWindow::getRender()
 	{
-		return Render; 
+		return Render;
 	}
 
 	ICursor* CWindow::getCursor()
@@ -443,28 +446,28 @@ namespace Sam3d
 
 
 
-/*
-#ifdef __cplusplus
-	extern "C" {     // do not use C++ decorations
-#endif
+	/*
+	#ifdef __cplusplus
+		extern "C" {     // do not use C++ decorations
+	#endif
 
-		DLL_API IWindow* DLLCALLCONV createWindow(const String& caption, Dimension2d<int> windowSize, int bits, bool fullScreen, bool vsync)
-		{
-			CWindow* Win;
-			Win = new CWindow(caption, windowSize, bits, fullScreen, vsync);
-
-//			if (Win && !Win->getRender())
+			DLL_API IWindow* DLLCALLCONV createWindow(const String& caption, Dimension2d<int> windowSize, int bits, bool fullScreen, bool vsync)
 			{
-				Win->Release();
-				Win = 0;
-			}
-			return Win;
-		};
+				CWindow* Win;
+				Win = new CWindow(caption, windowSize, bits, fullScreen, vsync);
+
+	//			if (Win && !Win->getRender())
+				{
+					Win->Release();
+					Win = 0;
+				}
+				return Win;
+			};
 
 
 
-#ifdef __cplusplus
-	} // close extern C
-#endif
-*/
-};
+	#ifdef __cplusplus
+		} // close extern C
+	#endif
+	*/
+}
