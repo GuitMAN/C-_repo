@@ -7,7 +7,7 @@ using namespace Sam3d;
 	{
 		Window = 0;
 		//		Camera = 0;
-		//		Render = 0;
+		Render = 0;
 		//		SceneManager = 0;
 		Mouse = 0;
 		//		Keyboard = 0;
@@ -21,10 +21,10 @@ using namespace Sam3d;
 	bool ExampleApp::setup()
 	{
 		if (!createWindow())return false;
-		//		Render = Window->getRender();
+				Render = Window->getRender();
 		//		SceneManager = Window->getSceneManager();
 		//		Keyboard = Window->getInput();
-		//		Mouse = Window->getCursor();
+				Mouse = Window->getCursor();
 		//		createCamera();
 		//		createScene();
 
@@ -78,7 +78,7 @@ using namespace Sam3d;
 
 	void ExampleApp::shutdown()
 	{
-		//	if (Window) Window->Release();
+			if (Window) Window->Release();
 	};
 
 	void ExampleApp::Run()
@@ -89,9 +89,9 @@ using namespace Sam3d;
 			//			processMouse();
 			//			processInput();
 			//			moveCamera();
-			//			Render->BeginScene(true, true, Sam3d::SColor(100, 10, 10, 10));
+						Render->BeginScene(true, true, Sam3d::SColor(100, 10, 10, 10));
 			//			if (SceneManager) SceneManager->Render();
-			//			Render->EndScene();
+						Render->EndScene();
 
 			//			int fps = Render->getFPS();
 			if (time >= 300)

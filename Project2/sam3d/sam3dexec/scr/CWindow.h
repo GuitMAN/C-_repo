@@ -26,7 +26,7 @@ namespace Sam3d
 		virtual void SetCaption(char* str);
 		virtual bool getWinVisible();
 		virtual void setWinVisible(bool set);
-		//	virtual IRender* getRender();
+		virtual IRender* getRender();
 		virtual ICursor* getCursor();
 		//	virtual ITimer* getTimer();
 		//	virtual ISceneManager* getSceneManager();
@@ -35,7 +35,7 @@ namespace Sam3d
 		class CCursor : public ICursor
 		{
 		public:
-			CCursor(HWND hwnd, bool fullscreen) :hWnd(hwnd), Moved(false)
+			CCursor(HWND hwnd, bool fullscreen) :hWnd(hwnd)
 			{
 				BorderX = 0;
 				BorderY = 0;
@@ -45,10 +45,12 @@ namespace Sam3d
 					BorderY = GetSystemMetrics(SM_CYCAPTION) + GetSystemMetrics(SM_CYDLGFRAME);
 				}
 			}
-			~CCursor() {};
-			virtual Position2d<int> getPosition()
+			~CCursor()
 			{
+			}
 
+			Position2d<int> getPosition()
+			{
 				return Position;
 			}
 			void setPosition(int x, int y)
@@ -57,12 +59,23 @@ namespace Sam3d
 				if (GetWindowRect(hWnd, &rect))
 					SetCursorPos(x + rect.left + BorderX, y + rect.top + BorderY);
 			}
-			bool Moved;
-			Position2d<int> Position;
+
+			bool getMoved()
+			{
+				return Moved;
+			}
+
+			void setMoved(int move)
+			{
+				Moved = move;
+			}
+
+		private:
+
 			HWND hWnd;
-			int BorderX, BorderY;
+
 		};
-		CCursor* Cursor = 0;
+		ICursor* Cursor = 0;
 		//	CInput	*Input;
 
 		int				bitsPerPixel = 0;	// Ѕит на пиксель

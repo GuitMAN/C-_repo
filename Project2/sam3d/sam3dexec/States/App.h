@@ -23,7 +23,7 @@ using namespace Sam3d;
 
 	protected:
 		//	ICameraSceneNode* Camera;
-		//	IRender* Render;
+		IRender* Render;
 		//	ISceneManager* SceneManager;
 		ICursor* Mouse;
 		//	CInput* Keyboard;

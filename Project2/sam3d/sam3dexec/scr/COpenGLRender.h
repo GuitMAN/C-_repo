@@ -27,7 +27,7 @@ namespace Sam3d
 		virtual ~COpenGLRender();
 
 		bool Init();
-		void BeginScene(bool backBuffer, bool zBuffer, SColor color) {};
+		void BeginScene(bool backBuffer, bool zBuffer, SColor color);
 		void draw2DRectangle(const Position2d<int>& position, const Position2d<int>& clip, const SColor& color) {};
 		//	virtual void draw2DImage(const Position2d<int> &position, const Position2d<int> &clip, ITexture* texture, const SColor &color, bool useAlphaChannelOfTexture)=0;
 		//	virtual void draw2DImage(const Position2d<int> &position, const Position2d<int> &clip, ITexture* texture, const Position2d<int> &soursePos, const Position2d<int> &sourseClip, const SColor &color, bool useAlphaChannelOfTexture)=0;
@@ -36,9 +36,9 @@ namespace Sam3d
 		void drawIndexedTriangleStrip(S3DVertex* vertices, int vertexCount, const uShort* indexList, int indexCount) {};
 		void drawBuffer(SRenderOp Op, int vertexStart, int vertexCount, int indexStart, int primCount) {};
 
-		void EndScene() {};
+		void EndScene();
 
-		IRender* getRender() { return  NULL; };
+		IRender* getRender() { return  this; };
 		//	virtual ITexture* LoadTextureFromFile(char* Name)=0;
 		//	virtual void addTexture(ITexture* texture, std::string Name)=0;
 		//	virtual void setTexture(int stage, ITexture* texture)=0;
@@ -63,13 +63,16 @@ namespace Sam3d
 		void setAmbientLight(float r, float g, float b) {};
 
 	protected:
-		HWND hWnd;
+		HWND *hWnd;
+		HDC  hDC = NULL;              // Приватный контекст устройства GDI
 		HGLRC  hRC = NULL;
+//		HINSTANCE  *hInstance;              // Здесь будет хранится дескриптор приложения
 		Dimension2d<int> ScreenSize;
 		bool FullScreen;
 		bool Vsync;
 
-
+		PIXELFORMATDESCRIPTOR pfd;
+		ECOLOR_FORMAT ColorFormat;
 
 
 	};

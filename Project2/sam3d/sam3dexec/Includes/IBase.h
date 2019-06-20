@@ -25,7 +25,7 @@ public:
 	{
 		--ReferenceCounter;
 		if (ReferenceCounter)
-		{
+		{	
 			delete this;
 			return true;
 		}

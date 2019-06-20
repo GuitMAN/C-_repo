@@ -90,6 +90,7 @@ namespace Sam3d
 
 		case WM_CREATE:
 		{
+			
 
 
 		}
@@ -137,39 +138,33 @@ namespace Sam3d
 
 		case WM_LBUTTONDOWN:								// Left mouse button is pressed
 //			win->Input->Mouse.LButtonDown=TRUE;
-			win->Cursor->Position.x = LOWORD(lParam);
-			win->Cursor->Position.y = HIWORD(lParam);
+			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			return 0;
 
 		case WM_RBUTTONDOWN:								// Right mouse button is pressed
 			win = getDeviceFromHWnd(hWnd);
 			//		win->Input->Mouse.RButtonDown=TRUE;
-			win->Cursor->Position.x = LOWORD(lParam);
-			win->Cursor->Position.y = HIWORD(lParam);
+			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			return 0;
 
 		case WM_MBUTTONDOWN:								// Middle mouse button is pressed
 //			win->Input->Mouse.MidButtonDown=TRUE;
-			win->Cursor->Position.x = LOWORD(lParam);
-			win->Cursor->Position.y = HIWORD(lParam);
+			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			return 0;
 
 		case WM_MBUTTONUP:								// Middle mouse button is pressed
 //			win->Input->Mouse.MidButtonDown=FALSE;
-			win->Cursor->Position.x = LOWORD(lParam);
-			win->Cursor->Position.y = HIWORD(lParam);
+			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			return 0;
 
 		case WM_LBUTTONUP:								// Left mouse button is pressed
 //			win->Input->Mouse.LButtonDown=FALSE;
-			win->Cursor->Position.x = LOWORD(lParam);
-			win->Cursor->Position.y = HIWORD(lParam);
+			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			return 0;
 
 		case WM_RBUTTONUP:								// Right mouse button is pressed
 //			win->Input->Mouse.RButtonDown=FALSE;
-			win->Cursor->Position.x = LOWORD(lParam);
-			win->Cursor->Position.y = HIWORD(lParam);
+			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			return 0;
 
 		case WM_KEYUP:
@@ -185,9 +180,8 @@ namespace Sam3d
 
 		case WM_MOUSEMOVE:
 		{
-			win->Cursor->Position.x = LOWORD(lParam);
-			win->Cursor->Position.y = HIWORD(lParam);
-			win->Cursor->Moved = true;
+			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
+			win->Cursor->setMoved(1) ;
 		}
 		return 0;
 		case WM_MOUSEWHEEL:
@@ -198,14 +192,38 @@ namespace Sam3d
 
 		case WM_DESTROY:
 		{
-			PostQuitMessage(0);
+			
 		}
 		return 0;
 
 		case WM_CLOSE:			// Закрываем окно
-			PostMessage(hWnd, WM_QUIT, 0, 0);
-			return 0;
+		{
 
+			std::list<SEnvMapper>::iterator it = EnvMap.begin();
+			for (; it != EnvMap.end(); ++it)
+			{
+				if ((*it).hWnd == hWnd)
+				{
+					EnvMap.erase(it);
+					break;
+				}
+			}
+			DestroyWindow(hWnd);
+
+			//	if (SceneManager) SceneManager->Release();
+			//	if (Input) delete Input;
+			//	if (Timer) Timer->Release();
+			if (win->ChangedToFullScreen) {};
+			if (win->getRender()) win->getRender()->Release();
+			if (win->Cursor) delete win->Cursor;
+
+			ChangeDisplaySettings(NULL, 0);
+
+			PostQuitMessage(0);
+			PostMessage(hWnd, WM_QUIT, 0, 0);
+			
+			return 0;
+		}
 		}
 		return (DefWindowProc(hWnd, msg, wParam, lParam));
 	};
@@ -231,16 +249,19 @@ namespace Sam3d
 		windowsclass.hCursor = LoadCursor(NULL, IDC_ARROW);
 		windowsclass.hbrBackground = (HBRUSH)GetStockObject(GRAY_BRUSH);
 		windowsclass.lpszMenuName = NULL;
-		windowsclass.lpszClassName = "";//className;
+		windowsclass.lpszClassName = className;
 		windowsclass.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
 
 		// Зарегестрируем класс
-		if (!RegisterClassEx(&windowsclass)) {};
-		//	return;
-
-		//	UnregisterClass(windowsclass.lpszClassName,windowsclass.hInstance);
-			// Теперь когда класс зарегестрирован можно создать окно
-
+		if (!RegisterClassEx(&windowsclass)) {
+			
+			return;
+		}
+			//	UnregisterClass(windowsclass.lpszClassName,windowsclass.hInstance);
+				// Теперь когда класс зарегестрирован можно создать окно
+		
+		
+		
 		RECT clientSize;
 		clientSize.top = 0;
 		clientSize.left = 0;
@@ -257,7 +278,7 @@ namespace Sam3d
 		}
 		AdjustWindowRect(&clientSize, style, FALSE);
 
-		if (!(hWnd = CreateWindowEx(NULL,				// стиль окна
+		if (!(hWnd = CreateWindowExA(NULL,				// стиль окна
 			className,	// класс
 			Caption.c_str(),    // название окна
 			style, //WS_OVERLAPPEDWINDOW | WS_VISIBLE,
@@ -268,23 +289,28 @@ namespace Sam3d
 			hInstance, // дескриптор экземпляра проложенния
 			NULL)))					// указатель на данные созданного окна
 			return;
+		
+
+		Cursor = new CCursor(hWnd, isFullScreen);
+
+	
 
 		ShowWindow(hWnd, SW_SHOWDEFAULT);    //Нарисуем окно    
 		UpdateWindow(hWnd);                  //Обновим окно
-		ShowCursor(false);
+		ShowCursor(true);
 		isVisible = true;
 		if (isFullScreen) switchToFullScreen(windowSize.Width, windowSize.Height, bits);
 
 		Render = new COpenGLRender(hWnd, windowSize, fullScreen, vsync);
 		if (!Render->Init())
 		{
-			MessageBox(HWND_DESKTOP, "Не установлен DirectX9", "Error", MB_OK | MB_ICONEXCLAMATION);
+			MessageBox(HWND_DESKTOP, "Не удалось инициализировать OpenGL", "Error", MB_OK | MB_ICONEXCLAMATION);
 			Render->Release();
 			return;
 		};
 
 		//	Input = new CInput();
-		Cursor = new CCursor(hWnd, isFullScreen);
+		
 		//	Timer = new CTimer();
 
 		//	SceneManager = CreateSceneManager(Render,Timer);
@@ -294,6 +320,7 @@ namespace Sam3d
 		em.hWnd = hWnd;
 		EnvMap.push_back(em);
 
+
 		SetActiveWindow(hWnd);
 		SetForegroundWindow(hWnd);
 
@@ -302,25 +329,7 @@ namespace Sam3d
 	CWindow::~CWindow()
 	{
 		
-		std::list<SEnvMapper>::iterator it = EnvMap.begin();
-		for (; it != EnvMap.end(); ++it)
-		{
-			if ((*it).hWnd == hWnd)
-			{
-				EnvMap.erase(it);
-				break;
-			}
-		}
-		DestroyWindow(hWnd);
-
-		//	if (SceneManager) SceneManager->Release();
-		//	if (Input) delete Input;
-		//	if (Timer) Timer->Release();
-		if (ChangedToFullScreen) {};
-//			if (Render) Render->Release();
-		if (Cursor) delete Cursor;
-
-		ChangeDisplaySettings(NULL, 0);
+		
 		
 	};
 
@@ -384,17 +393,17 @@ namespace Sam3d
 				quit = true;
 		}
 		//	if (!quit)
-		//		resizeIfNecessary();
+			//	resizeIfNecessary();
 
 		//	Render->registerFrame(Timer->getTime());
 
 		return !quit;
 	};
 
-	//IRender* CWindow::getRender()
-	//{
-	//	return Render; 
-	//}
+	IRender* CWindow::getRender()
+	{
+		return Render; 
+	}
 
 	ICursor* CWindow::getCursor()
 	{
@@ -423,7 +432,7 @@ namespace Sam3d
 		CWindow* Win;
 		Win = new CWindow(caption, windowSize, bits, fullScreen, vsync);
 
-		//			if (Win && !Win->getRender())
+		if (Win && !Win->getRender())
 		{
 			Win->Release();
 			Win = 0;
