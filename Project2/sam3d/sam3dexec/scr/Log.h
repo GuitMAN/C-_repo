@@ -8,6 +8,10 @@
 #include <String.H>
 #include <fstream>
 
+
+namespace Sam3d
+{
+
 #define OutputFile      "Log.html"                                      
 #define Log     Message()                                                               
 
@@ -56,21 +60,21 @@ inline void Screamer::Write(const char* Color, const char *String, ...)
         char LogText[1024];
         
         va_list Print;                                                                  
-//        va_start(Print, String);
+        va_start(Print, String);
 //        vsprintf(LogText, String, Print);                   
         va_end(Print);
         
 		LogFile.open(OutputFile,std::ios::app);
 
-//        strcat(HTML,"<Font Size = 2 Color = ");                 
- //       strcat(HTML,Color);                                                             
- //       strcat(HTML," Face = Verdana>");                                
+   //     strcat(HTML,"<Font Size = 2 Color = ");                 
+   //     strcat(HTML,Color);                                                             
+    //    strcat(HTML," Face = Verdana>");                                
 
 
 		// Добавляем текущую дату и время
 		time_t ltime;
 		time(&ltime);
-//		char *mtime=ctime(&ltime);
+//		char *mtime=__TIME__;
 //		mtime[strlen(mtime)-1]=0;
 
 		if (strcmp(PrevHTML,HTML)!=0)                                   
@@ -82,7 +86,7 @@ inline void Screamer::Write(const char* Color, const char *String, ...)
         }
 
 
-//		////MainConsole->Add(0,LogText);<<" : "
+		////MainConsole->Add(0,LogText);<<" : "
 		LogFile<<"<BR>"<<LogText<<std::endl;  
         LogFile.close();
 }
@@ -91,12 +95,12 @@ inline void Screamer::WriteBold(const char* Color, const char *String, ...)
 {
         if (!String) return;
         
-//        char LogText[1024];
+        char LogText[1024];
         
         va_list Print;                                                          
 
         va_start(Print, String);
- //       vsprintf(LogText, String, Print);           
+//        vsprintf(LogText, String, Print);           
         va_end(Print);
         
         WriteCode("<B>");
@@ -122,6 +126,7 @@ inline Screamer& Message()
         return SingleObject;
 }
 
+}
 
 #endif
 

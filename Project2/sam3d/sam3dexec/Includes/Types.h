@@ -35,8 +35,8 @@ typedef  std::string String;
 #endif
 
 
-#define DLL_API __declspec(dllexport)
-#define DLLCALLCONV __stdcall  // Declare the calling convention.
+//#define DLL_API __declspec(dllexport)
+//define DLLCALLCONV __stdcall  // Declare the calling convention.
 
 
 

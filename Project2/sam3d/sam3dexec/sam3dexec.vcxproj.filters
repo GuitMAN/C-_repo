@@ -116,6 +116,9 @@
     <ClInclude Include="scr\core\Logger.h">
       <Filter>Файлы заголовков\Includes</Filter>
     </ClInclude>
+    <ClInclude Include="scr\Log.h">
+      <Filter>Исходные файлы\scr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="sam3dexec.rc">

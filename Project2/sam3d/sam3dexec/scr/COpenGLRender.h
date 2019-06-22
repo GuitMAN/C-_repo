@@ -4,13 +4,10 @@
 #include    <GL/glu.h>
 
 #include "../scr/glext/glext.h"
-//#include "../scr/glext/glxext.h"
+
 
 #ifdef  _WIN32
-#include "../scr/glext/wglext.h"
-#else
-#include    <GL/glx.h>
-#include    <GL/glxext.h>
+	#include "../scr/glext/wglext.h"
 #endif
 
 #include "../Includes/IRender.h"

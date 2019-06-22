@@ -2,6 +2,9 @@
 #include <gl\gl.h>			// «аголовочный файл дл€ OpenGL32 библиотеки
 #pragma comment(lib, "opengl32.lib")
 
+#include "core/Logger.h"
+
+
 
 namespace Sam3d
 {
@@ -80,6 +83,13 @@ namespace Sam3d
 			return false;                // ¬ернуть false
 		}
 
+
+		glClearDepth(1.0);
+		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+		glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+		glHint(GL_POINT_SMOOTH_HINT, GL_FASTEST);
+		glFrontFace(GL_CW);
+
 		return true;
 	};
 
@@ -95,4 +105,34 @@ namespace Sam3d
 		glFlush();
 		SwapBuffers(hDC);
 	}
+
+
+	void COpenGLRender::draw2DRectangle(const Position2d<int>& position, const Position2d<int>& clip, const SColor& color)
+	{
+		int xPlus = -(ScreenSize.Width >> 1);
+		float xFact = 1.0f / (ScreenSize.Width >> 1);
+
+		int yPlus = ScreenSize.Height - (ScreenSize.Height >> 1);
+		float yFact = 1.0f / (ScreenSize.Height >> 1);
+
+		S3DVertex vtx[4];
+		vtx[0] = S3DVertex((position.x + xPlus) * xFact, (yPlus - position.y) * yFact, 1.0f, 0.0f, 0.0f, 0.0f, color, 0.0f, 0.0f); //верх-левый угол
+		vtx[1] = S3DVertex((position.x + clip.x + xPlus) * xFact, (yPlus - position.y) * yFact, 1.0f, 0.0f, 0.0f, 0.0f, color, 1.0f, 0.0f); //правый верхний
+		vtx[2] = S3DVertex((position.x + clip.x + xPlus) * xFact, (yPlus - position.y - clip.y) * yFact, 1.0f, 0.0f, 0.0f, 0.0f, color, 1.0f, 1.0f); //правый нижний
+		vtx[3] = S3DVertex((position.x + xPlus) * xFact, (yPlus - position.y - clip.y) * yFact, 1.0f, 0.0f, 0.0f, 0.0f, color, 0.0f, 1.0f); //нижний левый угол
+
+		SHORT indices[6] = { 0,1,2,0,2,3 };
+		
+	//	setTexture(0, 0);
+	//	setRenderStates2DMode(color.getAlpha() < 255, false, false);
+
+		glColor4f(color.getRed(),);
+		glVertexPointer(2, GL_FLOAT, sizeof(S3DVertex), &(static_cast<const S3DVertex*>(vtx))[0].Pos);
+
+		glDrawElements(GL_TRIANGLE_FAN, 4, GL_UNSIGNED_SHORT, indices);
+
+	};
+
+	
+
 }
