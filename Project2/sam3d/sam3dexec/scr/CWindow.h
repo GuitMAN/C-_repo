@@ -71,10 +71,10 @@ namespace Sam3d
 			}
 
 		private:
-
 			HWND hWnd;
-
 		};
+		
+		
 		ICursor* Cursor = 0;
 		//	CInput	*Input;
 

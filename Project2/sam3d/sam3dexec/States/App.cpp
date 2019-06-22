@@ -89,7 +89,7 @@ using namespace Sam3d;
 			//			processMouse();
 			//			processInput();
 			//			moveCamera();
-						Render->BeginScene(true, true, Sam3d::SColor(100, 10, 10, 10));
+						Render->BeginScene(true, true, Sam3d::SColor(100, 10, 100, 10));
 			//			if (SceneManager) SceneManager->Render();
 						Render->EndScene();
 
