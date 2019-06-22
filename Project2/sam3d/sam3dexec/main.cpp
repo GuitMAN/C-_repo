@@ -15,7 +15,9 @@ int main()
 
 	if (Root.setup()) 
 	{
+		
 		Root.Run();
+		
 	};
 	Root.shutdown();
 	return 0;

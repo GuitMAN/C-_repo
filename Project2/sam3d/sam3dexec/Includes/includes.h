@@ -15,7 +15,7 @@
 #include "IRender.h"
 //#include "ISceneManager.h"
 //#include "ISceneNode.h"
-//#include "IMesh.h"
+#include "IMesh.h"
 //#include "ITerrainSceneNode.h"
 //#include "ITexture.h"
 //#include "ITimer.h"

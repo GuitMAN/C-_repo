@@ -107,6 +107,15 @@
     <ClInclude Include="scr\COpenGLRender.h">
       <Filter>Исходные файлы\scr</Filter>
     </ClInclude>
+    <ClInclude Include="Includes\IMesh.h">
+      <Filter>Файлы заголовков\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\IMeshBuffer.h">
+      <Filter>Файлы заголовков\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\core\Logger.h">
+      <Filter>Файлы заголовков\Includes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="sam3dexec.rc">

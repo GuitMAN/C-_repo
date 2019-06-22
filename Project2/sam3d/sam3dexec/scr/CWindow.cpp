@@ -92,8 +92,7 @@ namespace Sam3d
 			// prevent screensaver or monitor powersave mode from starting
 			if ((wParam & 0xFFF0) == SC_SCREENSAVE ||
 				(wParam & 0xFFF0) == SC_MONITORPOWER ||
-				(wParam & 0xFFF0) == SC_KEYMENU
-				)
+				(wParam & 0xFFF0) == SC_KEYMENU	)
 				return 0;				// выход
 		}
 		break;								// выходим из функции
@@ -119,14 +118,17 @@ namespace Sam3d
 			{
 			case SIZE_MINIMIZED:		// Окно минимизировано?
 				if (win)win->isVisible = false;
+
 				return 0;
 			case SIZE_MAXIMIZED:		// Окно максимизировано?
 				if (win)win->isVisible = true;
 				// Подгоняем окно - LoWord=Width, HiWord=Height
+
 				return 0;
 			case SIZE_RESTORED:			// Окно было востановлено?
 				if (win)win->isVisible = true;
 				// Подгоняем - LoWord=Width, HiWord=Height
+
 				return 0;
 			}
 			break;
@@ -168,35 +170,35 @@ namespace Sam3d
 
 		case WM_LBUTTONDOWN:								// Left mouse button is pressed
 //			win->Input->Mouse.LButtonDown=TRUE;
-			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
+//			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			break;
 
 		case WM_RBUTTONDOWN:								// Right mouse button is pressed
-			win = getDeviceFromHWnd(hWnd);
+//			win = getDeviceFromHWnd(hWnd);
 			//		win->Input->Mouse.RButtonDown=TRUE;
-			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
+//			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			break;
 
 		case WM_MBUTTONDOWN:								// Middle mouse button is pressed
 //			win->Input->Mouse.MidButtonDown=TRUE;
-			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
+//			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			break;
 
 		case WM_MBUTTONUP:								// Middle mouse button is pressed
 //			win->Input->Mouse.MidButtonDown=FALSE;
-			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
+		//	win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			break;
 
 		case WM_LBUTTONUP:								// Left mouse button is pressed
 		{
 			//			win->Input->Mouse.LButtonDown=FALSE;
-			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
+		//	win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			break;
 		}
 		case WM_RBUTTONUP:								// Right mouse button is pressed
 		{
 			//			win->Input->Mouse.RButtonDown=FALSE;
-			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
+		//	win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			break;
 		}
 		case WM_KEYUP:
@@ -212,7 +214,7 @@ namespace Sam3d
 		}
 		case WM_MOUSEMOVE:
 		{
-			win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
+		//	win->Cursor->setPosition(LOWORD(lParam), HIWORD(lParam));
 			win->Cursor->setMoved(1);
 		}
 		break;
@@ -269,8 +271,8 @@ namespace Sam3d
 		WNDCLASSEX windowsclass; // Создем класс
 		const char* className = "SWindow";
 		// Создаем дескриптор окна
-		 // Сообщение
-// Определим класс окна WNDCLASSEX
+		// Сообщение
+		// Определим класс окна WNDCLASSEX
 		windowsclass.cbSize = sizeof(WNDCLASSEX);
 		windowsclass.style = CS_HREDRAW | CS_VREDRAW;
 		windowsclass.lpfnWndProc = MsgProc;
@@ -285,8 +287,12 @@ namespace Sam3d
 		windowsclass.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
 
 		// Зарегестрируем класс
-		RegisterClassEx(&windowsclass);
-	//		
+		if (!RegisterClassEx(&windowsclass))
+		{
+			UnregisterClass(windowsclass.lpszClassName, windowsclass.hInstance);
+		}
+
+		
 			// Теперь когда класс зарегестрирован можно создать окно
 
 		RECT clientSize;
@@ -306,6 +312,7 @@ namespace Sam3d
 			top = 0;
 			left = 0;
 		}
+		
 
 		AdjustWindowRect(&clientSize, style, FALSE);
 
@@ -355,8 +362,7 @@ namespace Sam3d
 	CWindow::~CWindow()
 	{
 
-		const char* className = "SWindow";
-		UnregisterClass(className, windowsclass.hInstance);
+
 
 
 	};
@@ -419,6 +425,7 @@ namespace Sam3d
 
 			if (msg.message == WM_QUIT)
 				quit = true;
+			
 		}
 		//	if (!quit)
 			//	resizeIfNecessary();
