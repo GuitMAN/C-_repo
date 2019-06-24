@@ -1,4 +1,5 @@
 #include "usermath.h"
+#include <math.h>
 
 ////////////////////////////////////////////////////////////
 //USERMATH - Прочая математика для быстрых вычислений
@@ -10,10 +11,25 @@ namespace Sam3d
 	static float _1_47 = 1.47f;
 	static float _2 = 2.f;
 
+
+
+
+
+
+
+
 	float __inline ulrsqrt(float x)
 	{
-		DWORD y;
+
+		
 		float r;
+
+#ifdef _WIN64
+		
+		r = sqrtf(x);
+
+#else
+		DWORD y;
 		_asm
 		{
 			mov     eax, 07F000000h + 03F800000h // (ONE_AS_INTEGER<<1) + ONE_AS_INTEGER
@@ -40,6 +56,8 @@ namespace Sam3d
 		r = *(float*)& y;
 		// optional
 		r = (3.0f - x * (r * r)) * r * 0.5f; // remove for low accuracy
+		
+#endif
 		return r;
 	}
 
@@ -47,6 +65,15 @@ namespace Sam3d
 
 	void __inline MyFtoL(int* i, float& f)
 	{
+
+#ifdef _WIN64
+
+		int a = (int)f;
+
+		i = &a;
+
+#else
+
 		_asm
 		{
 			fld f;
@@ -54,26 +81,42 @@ namespace Sam3d
 			fistp[edx];
 
 		}
-	}
+	
 
+#endif
+	
+	}
 	__inline const int roundf(const float& x)
 	{
 		int n;
+
+#ifdef _WIN64
+		n = round(x);
+
+#else
 		_asm
 		{
 			fld     x;
 			fistp   n;
 		}
+#endif
 		return n;
 	}
 
 	//Арктангенс
 	float __inline ArcTan(float& a)
 	{
+
+#ifdef _WIN64
+
+		a = atanf(a);
+		
+#else
 		__asm fld1
 		__asm fld a
 		__asm fpatan
 		__asm fstp a;
+#endif
 		return a;
 	}
 
@@ -81,6 +124,11 @@ namespace Sam3d
 	//Аркосинус 
 	float __inline ArcCos(float& a)
 	{
+#ifdef _WIN64
+
+		a = acosf(a);
+
+#else
 		__asm fld1
 		__asm fsub a
 		__asm fsqrt
@@ -91,14 +139,26 @@ namespace Sam3d
 		__asm fld  _2
 		__asm fmul
 		__asm fstp a;
+#endif
 		return a;
 	}
 
 	DWORD __inline HI_LOW(WORD& HI, WORD& LOW)
 	{
+#ifdef _WIN64
+
 		DWORD t1, t2;
 		t1 = HI;
 		t2 = LOW;
+		t1 << 16;
+		t1  += t2;
+
+#else
+		DWORD t1, t2;
+		t1 = HI;
+		t2 = LOW;
+
+
 		_asm
 		{
 			mov eax, t1
@@ -106,6 +166,8 @@ namespace Sam3d
 			add eax, t2
 			mov t1, eax
 		}
+
+#endif
 		return t1;
 	};
 

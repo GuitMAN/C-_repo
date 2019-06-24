@@ -36,6 +36,15 @@
     <ClCompile Include="scr\CWindow.cpp">
       <Filter>Исходные файлы\scr</Filter>
     </ClCompile>
+    <ClCompile Include="scr\core\Usermath.cpp">
+      <Filter>Исходные файлы\scr\core</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\CDirect3D9Render.cpp">
+      <Filter>Исходные файлы\scr</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\COpenGLRender.cpp">
+      <Filter>Исходные файлы\scr</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
@@ -83,5 +92,37 @@
     <ClInclude Include="Includes\Input.h">
       <Filter>Файлы заголовков\Includes</Filter>
     </ClInclude>
+    <ClInclude Include="scr\core\UserMath.h">
+      <Filter>Исходные файлы\scr\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\IRender.h">
+      <Filter>Файлы заголовков\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\CDirect3D9Render.h">
+      <Filter>Исходные файлы\scr</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\COpenGLRender.h">
+      <Filter>Исходные файлы\scr</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\IMesh.h">
+      <Filter>Файлы заголовков\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\IMeshBuffer.h">
+      <Filter>Файлы заголовков\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\core\Logger.h">
+      <Filter>Файлы заголовков\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\Log.h">
+      <Filter>Исходные файлы\scr</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="sam3dexec.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

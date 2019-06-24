@@ -76,9 +76,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>_CRT_SECURE_NO_WARNINGS. %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -89,7 +92,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -102,7 +105,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
@@ -124,6 +127,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="scr\CDirect3D9Render.cpp" />
+    <ClCompile Include="scr\core\Usermath.cpp" />
+    <ClCompile Include="scr\COpenGLRender.cpp" />
     <ClCompile Include="scr\CWindow.cpp" />
     <ClCompile Include="States\App.cpp" />
   </ItemGroup>
@@ -131,18 +137,30 @@
     <ClInclude Include="Header.h" />
     <ClInclude Include="Includes\IBase.h" />
     <ClInclude Include="Includes\ICursor.h" />
+    <ClInclude Include="Includes\IMesh.h" />
+    <ClInclude Include="Includes\IMeshBuffer.h" />
     <ClInclude Include="Includes\includes.h" />
     <ClInclude Include="Includes\Input.h" />
+    <ClInclude Include="Includes\IRender.h" />
     <ClInclude Include="Includes\IWindow.h" />
     <ClInclude Include="Includes\Types.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="scr\CDirect3D9Render.h" />
     <ClInclude Include="scr\core\dimension2d.h" />
+    <ClInclude Include="scr\core\Logger.h" />
     <ClInclude Include="scr\core\Position2d.h" />
     <ClInclude Include="scr\core\S3DVertex.h" />
     <ClInclude Include="scr\core\SColor.h" />
+    <ClInclude Include="scr\core\UserMath.h" />
     <ClInclude Include="scr\core\Vector2f.h" />
     <ClInclude Include="scr\core\Vector3f.h" />
+    <ClInclude Include="scr\COpenGLRender.h" />
     <ClInclude Include="scr\CWindow.h" />
+    <ClInclude Include="scr\Log.h" />
     <ClInclude Include="States\App.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="sam3dexec.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

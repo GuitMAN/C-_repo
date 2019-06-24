@@ -58,7 +58,7 @@ struct SRenderOp
 class IRender: public IBase
 {
 public:
-	virtual ~IRender(){};
+	//virtual ~IRender(){};
 
 	virtual bool Init()=0;
 	virtual void BeginScene(bool backBuffer, bool zBuffer, SColor color)=0;

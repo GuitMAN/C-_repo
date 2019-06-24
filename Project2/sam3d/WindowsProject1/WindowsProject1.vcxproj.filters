@@ -24,17 +24,17 @@
     <ClInclude Include="Resource.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGL_proj.h">
+    <ClInclude Include="WindowsProject1.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="OpenGL_proj.cpp">
+    <ClCompile Include="WindowsProject1.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="OpenGL_proj.rc">
+    <ResourceCompile Include="WindowsProject1.rc">
       <Filter>Файлы ресурсов</Filter>
     </ResourceCompile>
   </ItemGroup>
@@ -42,7 +42,7 @@
     <Image Include="small.ico">
       <Filter>Файлы ресурсов</Filter>
     </Image>
-    <Image Include="OpenGL_proj.ico">
+    <Image Include="WindowsProject1.ico">
       <Filter>Файлы ресурсов</Filter>
     </Image>
   </ItemGroup>

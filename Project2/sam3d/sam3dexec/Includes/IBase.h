@@ -14,13 +14,18 @@ public:
 		AddRef();
 	}
 
-	virtual ~IBase()=0;
+	~IBase() {
+		if (ReferenceCounter)
+		{
+			Release();
+		}
+	};
 
 	bool Release()
 	{
 		--ReferenceCounter;
 		if (ReferenceCounter)
-		{
+		{	
 			delete this;
 			return true;
 		}
